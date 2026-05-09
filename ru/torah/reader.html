@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тора | TorahSources</title>
+
+    <link rel="stylesheet" href="../../style.css">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="../../images/180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/180.png">
+</head>
+
+
+<body>
+
+<main class="torah-reader-layout">
+
+    <!-- Левая колонка: книги -->
+    <aside class="torah-books-panel">
+        <nav class="torah-books-list" id="bookList">
+            <a href="#" data-book="bereshit">Берешит</a>
+            <a href="#" data-book="shemot">Шмот</a>
+            <a href="#" data-book="vayikra">Ваикра</a>
+            <a href="#" data-book="bemidbar">Бемидбар</a>
+            <a href="#" data-book="devarim">Дварим</a>
+        </nav>
+    </aside>
+
+    <!-- Средняя колонка: главы -->
+    <aside class="torah-chapters-panel">
+        <div class="chapters-title">Гл.</div>
+        <div class="torah-chapters-list" id="chapterList"></div>
+    </aside>
+
+    <!-- Правая колонка: текст -->
+    <section class="torah-content-panel">
+        <header class="torah-reader-header">
+            <h1 id="chapterTitle">Берешит 1</h1>
+        </header>
+
+        <article id="chapterText" class="torah-chapter-text">
+
+        </article>
+    </section>
+
+</main>
+
+<script src="../../js/torah-reader.js"></script>
+
+
+
+</body>
+</html>

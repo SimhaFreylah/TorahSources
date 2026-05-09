@@ -166,12 +166,14 @@ p {
     max-width: 650px;
     margin: 15px auto;
     padding: 5px 25px;
+
 }
 
 .table-wrapper table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid rgba(255, 255, 255, 0.18);
+    vertical-align: top;
 }
 
 .table-wrapper td {
@@ -179,6 +181,17 @@ p {
     padding: 10px 12px;
     vertical-align: top;
 }
+
+.table-wrapper td[dir="rtl"] {
+    text-align: right;
+}
+
+.table-wrapper td[dir="rtl"] a {
+    display: block;
+    text-align: right;
+    line-height: 1.35;
+}
+
 /* ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */
 
 
@@ -390,3 +403,357 @@ p {
 
 
 /* ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */
+
+/* ==============================
+   TORAH READER — DARK STYLE
+   ============================== */
+
+.torah-reader-layout {
+    display: grid;
+    grid-template-columns: 240px 95px 1fr;
+    height: 100vh;
+    background-color: #000000;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* ===== Левая колонка: книги ===== */
+
+.torah-books-panel {
+    background-color: #050505;
+    border-right: 1px solid #333333;
+    padding: 34px 18px;
+    overflow-y: auto;
+}
+
+.torah-books-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.torah-books-list a {
+    text-decoration: none;
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #ffffff;
+    transition: 0.25s ease;
+}
+
+.torah-books-list a:hover,
+.torah-books-list a.active-book {
+    color: #d4af37;
+}
+
+/* ===== Средняя колонка: главы ===== */
+
+.torah-chapters-panel {
+    background-color: #080808;
+    border-right: 1px solid #333333;
+    padding: 26px 10px;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.chapters-title {
+    font-size: 34px;
+    font-weight: 700;
+    color: #d4af37;
+    margin-bottom: 18px;
+}
+
+.torah-chapters-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.torah-chapters-list a {
+    text-decoration: none;
+    font-size: 30px;
+    line-height: 1.1;
+    font-weight: 700;
+    color: #ffffff;
+    padding: 4px 0;
+    border-radius: 8px;
+    transition: 0.25s ease;
+}
+
+.torah-chapters-list a:hover,
+.torah-chapters-list a.active-chapter {
+    color: #d4af37;
+    background-color: #151515;
+}
+
+/* ===== Правая область: текст главы ===== */
+
+.torah-content-panel {
+    background-color: #000000;
+    padding: 28px 48px 50px;
+    overflow-y: auto;
+}
+
+.torah-reader-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #333333;
+}
+
+#chapterTitle {
+    margin: 0;
+    font-size: clamp(38px, 4vw, 64px);
+    color: #d4af37;
+    font-weight: 700;
+}
+
+/* ===== Текст главы ===== */
+
+.torah-chapter-text {
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+.chapter-heading {
+    text-align: center;
+    margin-bottom: 34px;
+}
+
+.chapter-heading .chapter-hebrew-title {
+    font-size: clamp(42px, 5vw, 72px);
+    color: #d4af37;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.chapter-heading .chapter-russian-title {
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+/* ===== Стихи ===== */
+
+.verse-row {
+    display: grid;
+    grid-template-columns: 65px 1fr;
+    gap: 22px;
+    padding: 20px 0;
+    border-bottom: 1px solid #222222;
+}
+
+.verse-number {
+    font-size: 28px;
+    font-weight: 700;
+    color: #d4af37;
+    text-align: center;
+    padding-top: 6px;
+}
+
+.verse-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.verse-hebrew {
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: 1.45;
+    color: #ffffff;
+}
+
+.verse-translation {
+    font-size: 22px;
+    line-height: 1.6;
+    color: #dcdcdc;
+}
+
+/* ===== Сообщение, если главы ещё нет ===== */
+
+.empty-chapter {
+    font-size: 24px;
+    color: #cccccc;
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* ===== Скроллбар под тёмный стиль ===== */
+
+.torah-books-panel::-webkit-scrollbar,
+.torah-chapters-panel::-webkit-scrollbar,
+.torah-content-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.torah-books-panel::-webkit-scrollbar-track,
+.torah-chapters-panel::-webkit-scrollbar-track,
+.torah-content-panel::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+.torah-books-panel::-webkit-scrollbar-thumb,
+.torah-chapters-panel::-webkit-scrollbar-thumb,
+.torah-content-panel::-webkit-scrollbar-thumb {
+    background: #444444;
+    border-radius: 10px;
+}
+
+.torah-books-panel::-webkit-scrollbar-thumb:hover,
+.torah-chapters-panel::-webkit-scrollbar-thumb:hover,
+.torah-content-panel::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
+}
+
+/* ===== Адаптив ===== */
+
+@media (max-width: 1100px) {
+    .torah-reader-layout {
+        grid-template-columns: 190px 80px 1fr;
+    }
+
+    .torah-books-list a {
+        font-size: 24px;
+    }
+
+    .torah-chapters-list a {
+        font-size: 24px;
+    }
+
+    .torah-content-panel {
+        padding: 24px 28px 40px;
+    }
+}
+
+@media (max-width: 800px) {
+    .torah-reader-layout {
+        grid-template-columns: 1fr;
+        height: auto;
+        overflow: visible;
+    }
+
+    .torah-books-panel,
+    .torah-chapters-panel,
+    .torah-content-panel {
+        overflow: visible;
+        border-right: none;
+        border-bottom: 1px solid #333333;
+    }
+
+    .torah-books-list,
+    .torah-chapters-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .verse-row {
+        grid-template-columns: 1fr;
+    }
+
+    .verse-number {
+        text-align: left;
+    }
+}
+
+
+/* ==============================
+   TORAH TABLE — DARK STYLE
+   ============================== */
+
+.torah-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #000000;
+    color: #ffffff;
+    table-layout: fixed;
+    border: 1px solid #555555;
+}
+
+.torah-table tr {
+    border-bottom: 1px solid #555555;
+}
+
+.torah-table td {
+    border-right: 1px solid #555555;
+    vertical-align: top;
+    padding: 8px 12px;
+}
+
+.torah-table td:last-child {
+    border-right: none;
+}
+
+/* Левая ссылка: Берешит 1:1 */
+.torah-table .verse-ref {
+    width: 8%;
+    color: #8f8f8f;
+    font-size: 18px;
+    line-height: 1.35;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Русский перевод */
+.torah-table .verse-ru {
+    width: 42%;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 1.35;
+    font-weight: 500;
+}
+
+/* Ивритский текст */
+.torah-table .verse-he {
+    width: 43%;
+    color: #b9d4b5;
+    font-family: "Cardo", "Times New Roman", serif;
+    font-size: 32px;
+    line-height: 1.45;
+    text-align: right;
+}
+
+/* Правая ссылка: בראשית א:א */
+.torah-table .verse-ref-he {
+    width: 7%;
+    color: #8f8f8f;
+    font-family: "Cardo", "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.35;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Сноски */
+.torah-table sup {
+    color: #ffffff;
+    font-size: 0.65em;
+    vertical-align: super;
+}
+
+/* Иврит внутри русского текста */
+.torah-table .verse-ru span[lang="he"] {
+    font-family: "Cardo", "Times New Roman", serif;
+    color: #ffffff;
+}
+
+/* На маленьких экранах */
+@media (max-width: 900px) {
+    .torah-table {
+        table-layout: auto;
+    }
+
+    .torah-table .verse-ref,
+    .torah-table .verse-ref-he {
+        font-size: 14px;
+    }
+
+    .torah-table .verse-ru {
+        font-size: 18px;
+    }
+
+    .torah-table .verse-he {
+        font-size: 24px;
+    }
+}
