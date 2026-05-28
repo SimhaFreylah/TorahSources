@@ -192,6 +192,53 @@ p {
     line-height: 1.35;
 }
 
+
+
+/* Узкие колонки нумерации в таблице Торы */
+
+.torah-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+/* 1-я колонка: 1:1 */
+.torah-table col:nth-child(1) {
+    width: 55px !important;
+}
+
+/* 4-я колонка: א:א */
+.torah-table col:nth-child(4) {
+    width: 55px !important;
+}
+
+/* 2-я и 3-я колонки делят всё оставшееся место */
+.torah-table col:nth-child(2),
+.torah-table col:nth-child(3) {
+    width: auto !important;
+}
+
+/* Убираем большой padding именно у колонок с номерами */
+.torah-table td.verse-ref,
+.torah-table td.verse-ref-he {
+    width: 55px !important;
+    max-width: 55px !important;
+
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Основные текстовые колонки оставляем просторными */
+.torah-table td.verse-ru,
+.torah-table td.verse-he {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+
 /* ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */
 
 
@@ -707,9 +754,9 @@ p {
 /* Ивритский текст */
 .torah-table .verse-he {
     width: 43%;
-    color: #b9d4b5;
+    /*color: #b9d4b5;*/
     font-family: "Cardo", "Times New Roman", serif;
-    font-size: 32px;
+    font-size: 24px;
     line-height: 1.45;
     text-align: right;
 }
