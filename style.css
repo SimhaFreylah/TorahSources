@@ -804,3 +804,52 @@ p {
         font-size: 24px;
     }
 }
+
+
+
+/* ==============================
+   SOURCE — STYLE
+   ============================== */
+/*.source-map {*/
+/*    margin: 28px 0 34px;*/
+/*    padding: 18px 22px;*/
+
+/*    background: #050505;*/
+/*    border: 1px solid #333;*/
+/*    border-radius: 14px;*/
+
+/*    color: #f2f2f2;*/
+/*    font-size: 20px;*/
+/*    line-height: 1.8;*/
+/*}*/
+
+/*.source-line {*/
+/*    display: inline-flex;*/
+/*    align-items: center;*/
+/*    gap: 10px;*/
+/*}*/
+
+/*.source-badge {*/
+/*    display: inline-flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+
+/*    width: 34px;*/
+/*    height: 34px;*/
+
+/*    border-radius: 50%;*/
+/*    font-weight: 700;*/
+/*    font-size: 18px;*/
+/*}*/
+
+/*.source-r {*/
+/*    background: #d6bd55;*/
+/*    color: #000;*/
+/*}*/
+
+/*.source-p {*/
+/*    background: #b9d4b5;*/
+/*    color: #000;*/
+/*}*/
+
+/* ============================== */
