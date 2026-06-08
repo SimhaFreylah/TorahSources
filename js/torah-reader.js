@@ -199,3 +199,7 @@ if (books[initial.book]) {
 } else {
     loadChapter("bereshit", 1, false);
 }
+
+
+
+

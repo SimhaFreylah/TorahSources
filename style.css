@@ -980,3 +980,308 @@ p {
 }
 
 /* ============================== */
+.reader-logo-box {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 20px;
+    margin-bottom: 12px;
+    padding-top: 8px;
+}
+
+.reader-logo {
+    width: 95px;
+    height: auto;
+    display: block;
+    cursor: pointer;
+}
+
+.reader-language-switch {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0 24px;
+    padding-left: 12px;
+}
+
+.reader-language-switch a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #000;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 14px;
+}
+
+
+/* ==============================
+   ПЕРЕКЛЮЧАТЕЛЬ СТАТЕЙ ПО КНИГАМ ТОРЫ
+   ============================== */
+
+.torah-articles-heading {
+    text-align: center;
+    color: #d4af37;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin: 0 0 28px 0;
+}
+
+
+.torah-articles-browser {
+    max-width: 1200px;
+    margin: 50px auto 70px;
+    padding: 28px 24px 32px;
+    box-sizing: border-box;
+    border: 1px solid rgba(180, 180, 180, 0.7);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.torah-book-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-bottom: 26px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+.torah-book-tab {
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 1.55rem;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0 0 10px;
+    transition: 0.2s ease;
+}
+
+.torah-book-tab:hover {
+    color: #d4af37;
+}
+
+.torah-book-tab.active {
+    color: #d4af37;
+    border-bottom-color: #d4af37;
+}
+
+.torah-articles-layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+/* Ставим список глав слева */
+.torah-parasha-sidebar {
+    order: 1;
+    position: sticky;
+    top: 20px;
+    border-right: 1px solid rgba(212, 175, 55, 0.16);
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.torah-articles-main {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.torah-parasha-title {
+    color: #d4af37;
+    font-size: 1.9rem;
+    line-height: 1.2;
+    margin: 0 0 18px 0;
+    padding: 0;
+    max-width: none;
+}
+
+.torah-parasha-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.torah-parasha-btn {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-radius: 14px;
+    color: rgba(255, 255, 255, 0.72);
+    text-align: left;
+    padding: 11px 14px;
+    font-size: 1rem;
+    font-family: inherit;
+    line-height: 1.35;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.torah-parasha-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.torah-parasha-btn.active {
+    background: rgba(212, 175, 55, 0.12);
+    color: #d4af37;
+    border: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+.torah-article-item {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 22px;
+    align-items: start;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(212, 175, 55, 0.10);
+    border-radius: 18px;
+    padding: 18px;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+.torah-article-image {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    background: #111111;
+}
+
+.torah-article-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+}
+
+/* ВАЖНО: сбрасываем глобальный стиль p */
+.torah-article-parasha,
+.torah-article-text,
+.torah-parasha-title {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+    text-align: left;
+}
+
+.torah-article-parasha {
+    color: #d4af37;
+    font-size: 1.2rem;
+    line-height: 1.2;
+}
+
+.torah-article-title {
+    color: #ffffff;
+    font-size: 1.7rem;
+    line-height: 1.2;
+    margin: 0;
+    max-width: none;
+    word-break: normal;
+}
+
+.torah-article-text {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.05rem;
+    line-height: 1.55;
+}
+
+.torah-article-link {
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: 2px;
+    padding: 10px 16px;
+    border: 1px solid rgba(212, 175, 55, 0.65);
+    border-radius: 10px;
+    color: #d4af37;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.torah-article-link:hover {
+    background: rgba(212, 175, 55, 0.10);
+    color: #d4af37;
+    text-decoration: none;
+}
+
+@media (max-width: 1000px) {
+    .torah-articles-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .torah-parasha-sidebar {
+        order: 1;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.16);
+        padding-right: 0;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+
+    .torah-articles-main {
+        order: 2;
+    }
+}
+
+@media (max-width: 760px) {
+    .torah-book-tabs {
+        gap: 18px;
+    }
+
+    .torah-book-tab {
+        font-size: 1.25rem;
+    }
+
+    .torah-article-item {
+        grid-template-columns: 1fr;
+    }
+
+    .torah-article-image {
+        height: 220px;
+    }
+
+    .torah-article-title {
+        font-size: 1.4rem;
+    }
+
+    .torah-article-text {
+        font-size: 1rem;
+    }
+
+    .torah-parasha-title {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\  */
+
+
+
+
+
+
+
+
