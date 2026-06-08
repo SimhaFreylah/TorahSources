@@ -1,7 +1,4 @@
 
-
-
-
 const torahArticlesData = {
     bereshit: {
         title: "Недельные главы",
@@ -57,7 +54,11 @@ const torahArticlesData = {
             { id: "beshalach", label: "Бешалах 13:17–17:16" },
             { id: "yitro", label: "Итро 18:1–20:23" },
             { id: "mishpatim", label: "Мишпатим 21:1–24:18" },
-            { id: "ki-tisa", label: "Ки-Тиса 30:11–34:35" }
+            { id: "terumah", label: "Трума 25:1-27:19" },
+            { id: "tetzaveh", label: "Тецаве 27:20-30:10" },
+            { id: "ki-tisa", label: "Ки-Тиса 30:11–34:35" },
+            { id: "vayakhel", label: "Ваякгель 35:1-38:20"},
+            { id: "pekudei", label: "Пкудей 38:21-40:38"}
         ],
         articles: {
             bo: [
@@ -105,7 +106,13 @@ const torahArticlesData = {
             { id: "vayikra", label: "Ваикра 1:1–5:26" },
             { id: "tzav", label: "Цав 6:1–8:36" },
             { id: "shemini", label: "Шмини 9:1–11:47" },
-            { id: "acharei-mot", label: "Ахарей-Мот 16:1–18:30" }
+            { id: "tazria", label: "Тазрия 12:1-13:59" },
+            { id: "metzora", label: "Мецора 14:1–15:33" },
+            { id: "acharei-mot", label: "Ахарей-Мот 16:1–18:30" },
+            { id: "kedoshim", label: "Кдошим 19:1-20:27" },
+            { id: "emor", label: "Эмор 21:1-24:23" },
+            { id: "behar", label: "Бегар 25:1–26:2" },
+            { id: "bechukotai", label: "Бехукотай 26:3–27:34" }
         ],
         articles: {
             shemini: [
@@ -126,7 +133,13 @@ const torahArticlesData = {
             { id: "bemidbar", label: "Бемидбар 1:1–4:20" },
             { id: "naso", label: "Насо 4:21–7:89" },
             { id: "behaalotecha", label: "Беhaалотха 8:1–12:16" },
-            { id: "shelach", label: "Шлах 13:1–15:41" }
+            { id: "shelach", label: "Шлах 13:1–15:41" },
+            { id: "korach", label: "Корах 16:1-18:32" },
+            { id: "chukat", label: "Хукат 19:1–22:1" },
+            { id: "balak", label: "Балак 22:2-25:9" },
+            { id: "pinchas", label: "Пинхас 25:10-30:1" },
+            { id: "matot", label: "Матот 30:2-32:42" },
+            { id: "masei", label: "Маасей 33:1-36:13" }
         ],
         articles: {
             naso: [
@@ -146,8 +159,15 @@ const torahArticlesData = {
         parashot: [
             { id: "devarim", label: "Дварим 1:1–3:22" },
             { id: "vaetchanan", label: "Ваэтханан 3:23–7:11" },
+            { id: "eikev", label: "Экев 7:12-11:25" },
             { id: "reeh", label: "Рээ 11:26–16:17" },
-            { id: "ki-tavo", label: "Ки-Таво 26:1–29:8" }
+            { id: "shoftim", label: "Шофтим 16:18-21:9" },
+            { id: "ki-teitzei", label: "Ки-Теце 21:10-25:19" },
+            { id: "ki-tavo", label: "Ки-Таво 26:1–29:8" },
+            { id: "nitzavim", label: "Ницавим 29:9-30:20" },
+            { id: "vayeilech", label: "Вайелех 31:1-31:30" },
+            { id: "ha’azinu", label: "Гаазину 32:1-32:52" },
+            { id: "vezot-haberachah", label: "Браха 33:1-34:12" }
         ],
         articles: {
             reeh: [
@@ -175,6 +195,72 @@ const torahArticlesData = {
                     link: "articles/shavuot-and-torah.html"
                 }
             ]
+        }
+    },
+
+    holidays: {
+        title: "Основные праздники",
+        parashot: [
+            { id: "pesach", label: "Песах" },
+            { id: "shavuot", label: "Шавуот" },
+            { id: "sukkot", label: "Суккот" },
+            { id: "rosh-hashanah", label: "Рош га-Шана" },
+            { id: "yom-kippur", label: "Йом-Кипур" },
+            { id: "hanukkah", label: "Ханука" },
+            { id: "purim", label: "Пурим" }
+        ],
+        articles: {
+            pesach: [
+                {
+                    parasha: "Песах",
+                    title: "Так варим или жарим Пасхального ягнёнка?",
+                    text: "Противоречие между текстами Шмот 12:9 и Дварим 16:7 о приготовлении пасхального ягнёнка.",
+                    image: "../images/passover-lamb.png",
+                    link: "articles/passover-lamb.html"
+                },
+                {
+                    parasha: "Песах",
+                    title: "Трансформация молока матери: как древний анти-угаритский запрет стал кашрутом",
+                    text: "Запрет варки ягнёнка в молоке матери в Шмот 23:19 и 34:26 не равен такому же запрету в Дварим 14:21.",
+                    image: "../images/anti-ugaritic-taboo.png",
+                    link: "articles/anti-ugaritic-taboo.html"
+                }
+            ],
+            shavuot: [
+                {
+                    parasha: "Шавуот",
+                    title: "Что тексты Торы подразумевают под Шавуотом?!",
+                    text: "Как уже источники Торы меняли изначально аграрный смысл Шавуота.",
+                    image: "../images/shavuot-in-torah.png",
+                    link: "articles/shavuot-in-torah.html"
+                },
+                {
+                    parasha: "Шавуот",
+                    title: "Шмот 19:1 и попытка связать Шавуот с Синаем",
+                    text: "Как поздний редактор Торы пытается найти Шавуоту иное назначение.",
+                    image: "../images/shavuot-and-sinai.png",
+                    link: "articles/shavuot-and-sinai.html"
+                },
+                {
+                    parasha: "Шавуот",
+                    title: "Шавуот в книге Юбилеев",
+                    text: "Какое ключевое изменение внёс автор книги Юбилеев в Шавуот?",
+                    image: "../images/shavuot-in-jubilees.png",
+                    link: "articles/shavuot-in-jubilees.html"
+                },
+                {
+                    parasha: "Шавуот",
+                    title: "В каком источнике Шавуот стал днём Синайского откровения?",
+                    text: "Почему только через 500 лет Шавуот стал Синаем?",
+                    image: "../images/shavuot-and-torah.png",
+                    link: "articles/shavuot-and-torah.html"
+                }
+            ],
+            sukkot: [],
+            "rosh-hashanah": [],
+            "yom-kippur": [],
+            hanukkah: [],
+            purim: []
         }
     }
 };
@@ -255,5 +341,3 @@ bookTabs.forEach(tab => {
 
 renderParashot(activeBook);
 renderArticles(activeBook, activeParasha);
-
-
