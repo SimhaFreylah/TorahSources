@@ -1306,6 +1306,29 @@ p {
 
 
 
+.support-button {
+    display: inline-block;
+    padding: 14px 26px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    line-height: 1.2;
+    transition: 0.2s ease;
+}
+
+.support-button:hover {
+    border-color: #d4af37;
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.08);
+    text-decoration: none;
+}
+
+
+
+
 
 
 

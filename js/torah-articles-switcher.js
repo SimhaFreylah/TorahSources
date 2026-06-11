@@ -201,6 +201,8 @@ const torahArticlesData = {
     holidays: {
         title: "Основные праздники",
         parashot: [
+            { id: "rosh-chodesh", label: "Рош-ходеш" },
+            { id: "shabbat ", label: "Шаббат" },
             { id: "pesach", label: "Песах" },
             { id: "shavuot", label: "Шавуот" },
             { id: "sukkot", label: "Суккот" },
@@ -210,6 +212,18 @@ const torahArticlesData = {
             { id: "purim", label: "Пурим" }
         ],
         articles: {
+            "rosh-chodesh": [
+                {
+                    parasha: "Рош-ходеш",
+                    title: "Рош-ходеш — древний еврейский праздник, который Тора превратила в храмовый регламент",
+                    text: "Почему народный праздник новолуния потерял своё значение?",
+                    image: "../images/newmoon.png",
+                    link: "articles/newmoon.html"
+                }
+
+            ],
+            shabbat: [],
+
             pesach: [
                 {
                     parasha: "Песах",
