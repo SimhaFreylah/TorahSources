@@ -202,7 +202,7 @@ const torahArticlesData = {
         title: "Основные праздники",
         parashot: [
             { id: "rosh-chodesh", label: "Рош-ходеш" },
-            { id: "shabbat ", label: "Шаббат" },
+            { id: "shabbat", label: "Шаббат" },
             { id: "pesach", label: "Песах" },
             { id: "shavuot", label: "Шавуот" },
             { id: "sukkot", label: "Суккот" },
@@ -222,7 +222,15 @@ const torahArticlesData = {
                 }
 
             ],
-            shabbat: [],
+            "shabbat": [
+                {
+                    parasha: "Шаббат",
+                    title: "Шаббат. От полнолуния к седьмому дню",
+                    text: "Эволюция Шаббата во времени.",
+                    image: "../images/shabbat.png",
+                    link: "articles/shabbat-chodesh.html"
+                }
+            ],
 
             pesach: [
                 {
