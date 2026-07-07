@@ -56,6 +56,17 @@ function toHebrewNumber(number) {
     return tens[ten] + ones[one];
 }
 
+/* Делает номер файла двухзначным:
+   1  → 01
+   2  → 02
+   9  → 09
+   10 → 10
+   50 → 50
+*/
+function formatChapterFileNumber(chapter) {
+    return String(chapter).padStart(2, "0");
+}
+
 /* Создаёт единый заголовок:
    Берешит 1 | בראשית א
 */
@@ -134,26 +145,24 @@ async function loadChapter(book, chapter, pushState = false) {
     renderChapters(book);
     renderChapterTitle(book, chapter);
 
+
+
     try {
-        const response = await fetch(`chapters/${book}-${chapter}.html`);
+        const chapterFileNumber = formatChapterFileNumber(chapter);
+        const filePath = `chapters/${book}-${chapterFileNumber}.html`;
+
+
+        console.log("Пробую загрузить:", filePath);
+
+        const response = await fetch(filePath);
 
         if (!response.ok) {
-            throw new Error("Глава не найдена");
+            throw new Error("Глава не найдена: " + filePath);
         }
 
         const html = await response.text();
         chapterText.innerHTML = html;
 
-        /*
-           Если внутри файла главы всё ещё есть старый отдельный заголовок:
-
-           <div class="chapter-heading">
-               ...
-           </div>
-
-           он будет автоматически удалён,
-           чтобы не появлялся второй ивритский заголовок.
-        */
         const oldChapterHeading = chapterText.querySelector(".chapter-heading");
 
         if (oldChapterHeading) {
@@ -161,10 +170,14 @@ async function loadChapter(book, chapter, pushState = false) {
         }
 
     } catch (error) {
+        console.error(error);
+
         chapterText.innerHTML = `
-            <p class="empty-chapter">Эта глава пока не добавлена.</p>
-        `;
+        <p class="empty-chapter">Эта глава пока не добавлена.</p>
+    `;
     }
+
+
 
     if (pushState) {
         const newUrl = `?book=${book}&chapter=${chapter}`;
@@ -199,7 +212,3 @@ if (books[initial.book]) {
 } else {
     loadChapter("bereshit", 1, false);
 }
-
-
-
-

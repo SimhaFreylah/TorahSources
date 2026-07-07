@@ -1330,6 +1330,80 @@ p {
 
 
 
+/* Разворачивание "дополнительно" в - chapters  */
+
+.extra-toggle {
+    margin: 50px auto 35px;
+    width: 70%;
+    max-width: 1050px;
+    border-top: 2px solid rgba(255, 255, 255, 0.75);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.75);
+    background: transparent;
+}
+
+.extra-toggle summary {
+    cursor: pointer;
+    padding: 28px 20px;
+    list-style: none;
+    text-align: center;
+    user-select: none;
+}
+
+.extra-toggle summary::-webkit-details-marker {
+    display: none;
+}
+
+.extra-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.extra-arrow {
+    display: inline-block;
+    margin-right: 10px;
+    color: #ffffff;
+    font-size: 22px;
+    transition: transform 0.25s ease;
+}
+
+.extra-toggle[open] .extra-arrow {
+    transform: rotate(90deg);
+}
+
+.extra-content {
+    padding: 25px 0 35px;
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.extra-content .new-paragraph {
+    text-align: justify;
+}
+
+
+
+
+/* Разворачивание "сноски" в - chapters  */
+
+.footnotes-box { margin: 40px auto 20px; max-width: 900px; padding: 0; border: 1px solid rgba(120, 160, 220, 0.35); border-radius: 12px; background: rgba(18, 24, 34, 0.75); box-shadow: 0 0 18px rgba(0, 0, 0, 0.25); }
+.footnotes-box summary { cursor: pointer; padding: 14px 20px; list-style: none; border-bottom: 1px solid rgba(120, 160, 220, 0.25); }
+.footnotes-box summary::-webkit-details-marker { display: none; }
+.footnotes-title { font-size: 16px; font-weight: 700; color: #ffffff; }
+.footnotes-list { padding: 18px 24px 22px; }
+.footnote-item { display: grid; grid-template-columns: 55px 1fr; column-gap: 12px; margin: 0 0 18px; font-size: 17px; line-height: 1.55; color: #d8e6ff; }
+.footnote-item:last-child { margin-bottom: 0; }
+.footnote-num { color: #6fa8ff; font-weight: 700; text-align: right; }
+.footnote-text { color: #d8e6ff; text-align: justify; text-align-last: left; }
+.footnote-text i { color: #ffffff; }
+.footnote-text a { display: block; color: #6fa8ff; text-align: justify; text-align-last: left; text-decoration: none; }
+.footnote-text a:hover { text-decoration: underline; }
+
+
+
+
+
+
 
 
 
