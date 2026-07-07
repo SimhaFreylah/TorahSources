@@ -1395,7 +1395,7 @@ p {
 .footnote-item:last-child { margin-bottom: 0; }
 .footnote-num { color: #6fa8ff; font-weight: 700; text-align: right; }
 .footnote-text { color: #d8e6ff; text-align: justify; text-align-last: left; }
-.footnote-text i { color: #ffffff; }
+.footnote-text i { color: inherit; }
 .footnote-text a { display: block; color: #6fa8ff; text-align: justify; text-align-last: left; text-decoration: none; }
 .footnote-text a:hover { text-decoration: underline; }
 
