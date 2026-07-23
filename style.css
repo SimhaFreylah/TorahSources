@@ -1330,7 +1330,7 @@ p {
 
 
 
-/* Разворачивание "дополнительно" в - chapters  */
+/* Разворачивание "ДОПОЛНИТЕЛЬНО" в - chapters  */
 
 .extra-toggle {
     margin: 50px auto 35px;
@@ -1382,9 +1382,7 @@ p {
 }
 
 
-
-
-/* Разворачивание "сноски" в - chapters  */
+/* Разворачивание "СНОСКИ" в - chapters  */
 
 .footnotes-box { margin: 40px auto 20px; max-width: 900px; padding: 0; border: 1px solid rgba(120, 160, 220, 0.35); border-radius: 12px; background: rgba(18, 24, 34, 0.75); box-shadow: 0 0 18px rgba(0, 0, 0, 0.25); }
 .footnotes-box summary { cursor: pointer; padding: 14px 20px; list-style: none; border-bottom: 1px solid rgba(120, 160, 220, 0.25); }
@@ -1397,7 +1395,7 @@ p {
 .footnote-text { color: #d8e6ff; text-align: justify; text-align-last: left; }
 .footnote-text i { color: inherit; }
 .footnote-text a { display: block; color: #6fa8ff; text-align: justify; text-align-last: left; text-decoration: none; }
-.footnote-text a:hover { text-decoration: underline; }
+.footnote-text a:hover { text-decoration-line: underline; text-decoration-thickness: 0.5px; text-underline-offset: 4px; text-decoration-color: rgba(111, 168, 255, 0.85); }
 
 
 
