@@ -1,0 +1,659 @@
+/* =========================================================
+   TORAH READER
+   Ридер текста Торы
+   =========================================================
+
+   Здесь находятся:
+   1. Основная сетка ридера
+   2. Панель книг
+   3. Панель глав
+   4. Область текста
+   5. Заголовок главы
+   6. Старый карточный формат стиха
+   7. Сообщение об отсутствии главы
+   8. Скроллбары
+   9. Таблица текста Торы
+        Адаптивные правила находятся отдельно в responsive.css.
+   ========================================================= */
+
+
+/* =========================================================
+   01. ОСНОВНАЯ СЕТКА РИДЕРА
+   ========================================================= */
+
+/* Ридер состоит из трёх колонок: [ книги ] [ главы ] [ текст ]
+   240px — список книг
+   95px  — номера глав
+   1fr   — основное содержимое */
+
+.torah-reader-layout {
+    display: grid;
+
+    grid-template-columns: 240px 95px 1fr;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    color: #ffffff;
+
+    background-color: #000000;
+}
+
+
+/* =========================================================
+   02. ПАНЕЛЬ КНИГ
+   ========================================================= */
+
+/* Левая колонка ридера. Содержит:
+   Берешит
+   Шмот
+   Ваикра
+   Бемидбар
+   Дварим
+*/
+
+.torah-books-panel {
+    padding: 34px 18px;
+
+    overflow-y: auto;
+
+    background-color: #050505;
+
+    border-right: 1px solid #333333;
+}
+
+
+/* Список книг */
+
+.torah-books-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+/* Одна книга */
+
+.torah-books-list a {
+    color: #ffffff;
+
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    text-decoration: none;
+
+    transition: 0.25s ease;
+}
+
+
+/* Наведение и активная книга */
+
+.torah-books-list a:hover,
+.torah-books-list a.active-book {
+    color: #d4af37;
+}
+
+
+/* =========================================================
+   03. ПАНЕЛЬ ГЛАВ
+   ========================================================= */
+
+/* Средняя узкая колонка. Содержит номера глав выбранной книги. */
+
+.torah-chapters-panel {
+    padding: 26px 10px;
+
+    overflow-y: auto;
+
+    text-align: center;
+
+    background-color: #080808;
+
+    border-right: 1px solid #333333;
+}
+
+
+/* Заголовок "Главы" */
+
+.chapters-title {
+    margin-bottom: 18px;
+
+    color: #d4af37;
+
+    font-size: 34px;
+    font-weight: 700;
+}
+
+
+/* Список номеров */
+
+.torah-chapters-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+/* Один номер главы */
+
+.torah-chapters-list a {
+    padding: 4px 0;
+
+    color: #ffffff;
+
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.1;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    transition: 0.25s ease;
+}
+
+
+/* Наведение и активная глава */
+
+.torah-chapters-list a:hover,
+.torah-chapters-list a.active-chapter {
+    color: #d4af37;
+
+    background-color: #151515;
+}
+
+
+/* =========================================================
+   04. ОСНОВНАЯ ОБЛАСТЬ ТЕКСТА
+   ========================================================= */
+
+/* Правая часть ридера. Именно здесь загружается HTML выбранной главы. */
+
+.torah-content-panel {
+    padding: 28px 48px 50px;
+
+    overflow-y: auto;
+
+    background-color: #000000;
+}
+
+
+/* =========================================================
+   05. ЗАГОЛОВОК ГЛАВЫ
+   ========================================================= */
+
+/* Верхняя часть области текста. Например: Берешит 25 | בראשית כה */
+
+.torah-reader-header {
+    margin-bottom: 30px;
+
+    padding-bottom: 18px;
+
+    text-align: center;
+
+    border-bottom: 1px solid #333333;
+}
+
+
+/* Сам заголовок */
+
+#chapterTitle {
+    margin: 0;
+
+    color: #d4af37;
+
+    font-size: clamp(38px, 4vw, 64px);
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   06. КОНТЕЙНЕР ГЛАВЫ
+   ========================================================= */
+
+/* Ограничивает максимальную ширину текста. На больших мониторах текст не растягивается бесконечно. */
+
+.torah-chapter-text {
+    max-width: 1350px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   07. СТАРЫЙ ЗАГОЛОВОК ВНУТРИ ГЛАВЫ
+   ========================================================= */
+
+/* Некоторые старые HTML-файлы главы могли содержать собственный заголовок. */
+
+.chapter-heading {
+    margin-bottom: 34px;
+
+    text-align: center;
+}
+
+
+/* Ивритский заголовок */
+
+.chapter-heading .chapter-hebrew-title {
+    color: #d4af37;
+
+    font-size: clamp(42px, 5vw, 72px);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+
+/* Русский заголовок */
+
+.chapter-heading .chapter-russian-title {
+    margin-top: 8px;
+
+    color: #ffffff;
+
+    font-size: 30px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   08. СТАРЫЙ КАРТОЧНЫЙ ФОРМАТ СТИХА
+   ========================================================= */
+
+/* В старой разметке стих мог выглядеть так:
+
+   <div class="verse-row">
+       ...
+   </div>
+
+   Поэтому grid оставляем,
+   НО ТОЛЬКО для элементов,
+   которые НЕ являются <tr>.
+
+   Это принципиально важно:
+   <tr class="verse-row"> не должен становиться grid.
+*/
+
+.verse-row:not(tr) {
+    display: grid;
+
+    grid-template-columns: 65px 1fr;
+
+    gap: 22px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #222222;
+}
+
+
+/* Номер стиха старого формата */
+
+.verse-number {
+    padding-top: 6px;
+
+    color: #d4af37;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+/* Контейнер текста */
+
+.verse-content {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* Иврит старого формата */
+
+.verse-hebrew {
+    color: #ffffff;
+
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: 1.45;
+}
+
+
+/* Русский перевод старого формата */
+
+.verse-translation {
+    color: #dcdcdc;
+
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   09. ГЛАВА ОТСУТСТВУЕТ
+   ========================================================= */
+
+/* Сообщение показывается, если HTML-файл главы не найден. */
+
+.empty-chapter {
+    margin-top: 60px;
+
+    color: #cccccc;
+
+    font-size: 24px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   10. СКРОЛЛБАРЫ РИДЕРА
+   ========================================================= */
+
+/* Общая ширина полосы прокрутки для трёх основных панелей. */
+
+.torah-books-panel::-webkit-scrollbar,
+.torah-chapters-panel::-webkit-scrollbar,
+.torah-content-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+/* Фон полосы */
+
+.torah-books-panel::-webkit-scrollbar-track,
+.torah-chapters-panel::-webkit-scrollbar-track,
+.torah-content-panel::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+
+/* Ползунок */
+
+.torah-books-panel::-webkit-scrollbar-thumb,
+.torah-chapters-panel::-webkit-scrollbar-thumb,
+.torah-content-panel::-webkit-scrollbar-thumb {
+    background: #444444;
+
+    border-radius: 10px;
+}
+
+
+/* Ползунок при наведении */
+
+.torah-books-panel::-webkit-scrollbar-thumb:hover,
+.torah-chapters-panel::-webkit-scrollbar-thumb:hover,
+.torah-content-panel::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
+}
+
+
+/* =========================================================
+   11. ТАБЛИЦА ТЕКСТА ТОРЫ
+   =========================================================
+
+   Структура:
+   ┌──────┬──────────────┬──────────────┬──────┐
+   │ 25:1 │ русский текст│ עברית     כה:א      │
+   └──────┴──────────────┴──────────────┴──────┘
+   1. verse-ref
+   2. verse-ru
+   3. verse-he
+   4. verse-ref-he
+   ========================================================= */
+
+
+/* =========================================================
+   12. ОБЁРТКА ТАБЛИЦЫ ТОРЫ
+   ========================================================= */
+
+/* В tables.css обычные таблицы ограничены 650px. В ридере это ограничение отменяем:
+таблица должна занимать всю ширину текста. */
+
+.torah-chapter-text .table-wrapper {
+    box-sizing: border-box;
+
+    width: 100%;
+    max-width: none;
+
+    margin: 15px auto 30px;
+
+    padding: 0;
+
+    overflow-x: auto;
+}
+
+
+/* =========================================================
+   13. ОСНОВНАЯ ТАБЛИЦА
+   ========================================================= */
+
+/* Поддерживаем оба варианта: <table class="torah-table">
+   и
+   <div class="table-wrapper">
+       <table>
+*/
+
+.torah-table,
+.torah-chapter-text .table-wrapper table {
+    width: 100%;
+
+    table-layout: fixed;
+
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    color: #ffffff;
+
+    background-color: #000000;
+
+    border: 1px solid #555555;
+}
+
+
+/* =========================================================
+   14. СТРОКИ ТАБЛИЦЫ
+   ========================================================= */
+
+/* Здесь явно возвращаем <tr> нормальное табличное поведение. Это защищает таблицу от старого .verse-row grid. */
+
+.torah-table tr,
+.torah-chapter-text .table-wrapper tr.verse-row {
+    display: table-row;
+
+    border-bottom: 1px solid #555555;
+}
+
+
+/* =========================================================
+   15. ЯЧЕЙКИ ТАБЛИЦЫ
+   ========================================================= */
+
+.torah-table td,
+.torah-chapter-text .table-wrapper tr.verse-row > td {
+    display: table-cell;
+
+    box-sizing: border-box;
+
+    padding: 18px 22px;
+
+    vertical-align: middle;
+
+    border: 1px solid #555555;
+}
+
+
+/* =========================================================
+   16. КОЛОНКА 1 — РУССКИЙ НОМЕР
+   ========================================================= */
+
+/*
+   Пример:
+   25:1
+   25:2
+   25:3
+*/
+
+.torah-table .verse-ref,
+.torah-chapter-text .table-wrapper .verse-ref {
+    width: 7%;
+
+    padding-left: 5px;
+    padding-right: 5px;
+
+    color: #8f8f8f;
+
+    font-size: 18px;
+    line-height: 1.3;
+
+    text-align: center;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   17. КОЛОНКА 2 — РУССКИЙ ТЕКСТ
+   ========================================================= */
+
+.torah-table .verse-ru,
+.torah-chapter-text .table-wrapper .verse-ru {
+    width: 43%;
+
+    padding-left: 28px;
+    padding-right: 28px;
+
+    color: #ffffff;
+
+    font-family: "Bona_Nova", "Times New Roman", serif;
+
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.45;
+
+    text-align: left;
+
+    white-space: normal;
+
+    word-break: normal;
+    overflow-wrap: normal;
+}
+
+
+/* =========================================================
+   18. КОЛОНКА 3 — ИВРИТ
+   ========================================================= */
+
+.torah-table .verse-he,
+.torah-chapter-text .table-wrapper .verse-he {
+    width: 43%;
+
+    padding-left: 28px;
+    padding-right: 28px;
+
+    direction: rtl;
+
+    font-family: "Cardo", "Times New Roman", serif;
+
+    font-size: 26px;
+    line-height: 1.5;
+
+    text-align: right;
+
+    white-space: normal;
+
+    word-break: normal;
+    overflow-wrap: normal;
+}
+
+
+/* =========================================================
+   19. КОЛОНКА 4 — ИВРИТСКИЙ НОМЕР
+   ========================================================= */
+
+/* Пример:
+   כה:א
+   כה:ב
+   כה:ג
+*/
+
+.torah-table .verse-ref-he,
+.torah-chapter-text .table-wrapper .verse-ref-he {
+    width: 7%;
+
+    padding-left: 5px;
+    padding-right: 5px;
+
+    color: #8f8f8f;
+
+    direction: rtl;
+
+    font-family: "Cardo", "Times New Roman", serif;
+
+    font-size: 18px;
+    line-height: 1.3;
+
+    text-align: center;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   20. ЦВЕТНАЯ РАЗМЕТКА ИВРИТА
+   ========================================================= */
+
+/* Внутри иврита используются <span> с цветами источников J / E / P / D / R. Они должны оставаться строчными,
+   чтобы текст не ломался на отдельные блоки. */
+
+.torah-chapter-text .table-wrapper .verse-he > span {
+    display: inline;
+}
+
+
+/* =========================================================
+   21. МАСОРЕТСКИЕ МЕТКИ
+   ========================================================= */
+
+/* Например: {פ}. Также оставляем строчным элементом. */
+
+.torah-chapter-text .table-wrapper .mam-spi-pe {
+    display: inline;
+}
+
+
+/* =========================================================
+   22. СНОСКИ В ТАБЛИЦЕ
+   ========================================================= */
+
+.torah-table sup,
+.torah-chapter-text .table-wrapper sup {
+    color: #ffffff;
+
+    font-size: 0.65em;
+
+    vertical-align: super;
+}
+
+
+/* =========================================================
+   23. ИВРИТ ВНУТРИ РУССКОГО ТЕКСТА
+   ========================================================= */
+
+/* Например: Бог (אֱלֹהִים). Иврит должен использовать Cardo, даже если находится внутри русской ячейки. */
+
+.torah-table .verse-ru span[lang="he"],
+.torah-chapter-text .table-wrapper .verse-ru span[lang="he"] {
+    color: #ffffff;
+
+    font-family: "Cardo", "Times New Roman", serif;
+}

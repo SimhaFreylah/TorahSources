@@ -1,0 +1,145 @@
+/* =========================================================
+   FONTS
+   Шрифты сайта
+   =========================================================
+   Здесь подключаются локальные шрифты для трёх языковых версий сайта:
+   1. English  — Besley
+   2. Russian  — Bona Nova
+   3. Hebrew   — Cardo
+        Каждый язык получает собственный основной шрифт через атрибут lang.
+        Папка fonts находится на уровень выше, поэтому путь начинается с ../fonts/
+   ========================================================= */
+
+
+/* =========================================================
+   01. ENGLISH — BESLEY
+   ========================================================= */
+/* Основной английский шрифт. VariableFont поддерживает несколько значений толщины в одном файле. */
+
+@font-face {
+    font-family: "Besley";
+
+    src: url("../fonts/besley/Besley-VariableFont_wght.ttf")
+    format("truetype");
+
+    font-weight: 400 900;
+    font-style: normal;
+}
+
+
+/* Курсивная версия Besley. Используется автоматически, когда элемент получает font-style: italic. */
+
+@font-face {
+    font-family: "Besley";
+
+    src: url("../fonts/besley/Besley-Italic-VariableFont_wght.ttf")
+    format("truetype");
+
+    font-weight: 400 900;
+    font-style: italic;
+}
+
+/* Основной шрифт английской версии сайта. Если Besley не загрузится, используется Times New Roman. */
+
+html[lang="en"] {
+    font-family: "Besley", "Times New Roman", serif;
+}
+
+
+/* =========================================================
+   02. RUSSIAN — BONA NOVA
+   ========================================================= */
+/* Обычное начертание Bona Nova. Используется для основного русского текста сайта. */
+
+@font-face {
+    font-family: "Bona_Nova";
+
+    src: url("../fonts/Bona_Nova/BonaNova-Regular.ttf")
+    format("truetype");
+
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* Жирное начертание. Используется для заголовков, выделений и font-weight: 700. */
+
+@font-face {
+    font-family: "Bona_Nova";
+
+    src: url("../fonts/Bona_Nova/BonaNova-Bold.ttf")
+    format("truetype");
+
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+/* Курсивное начертание Bona Nova. */
+
+@font-face {
+    font-family: "Bona_Nova";
+
+    src: url("../fonts/Bona_Nova/BonaNova-Italic.ttf")
+    format("truetype");
+
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+/* Все элементы с lang="ru" используют Bona Nova. Это позволяет применять русский шрифт даже внутри многоязычных страниц. */
+
+[lang="ru"] {
+    font-family: "Bona_Nova", "Times New Roman", serif;
+}
+
+
+/* =========================================================
+   03. HEBREW — CARDO
+   ========================================================= */
+/* Обычное начертание Cardo. Используется для ивритского текста, включая текст Танаха. */
+
+@font-face {
+    font-family: "Cardo";
+
+    src: url("../fonts/Cardo/Cardo-Regular.ttf")
+    format("truetype");
+
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* Жирное начертание Cardo. Используется при font-weight: 700. */
+
+@font-face {
+    font-family: "Cardo";
+
+    src: url("../fonts/Cardo/Cardo-Bold.ttf")
+    format("truetype");
+
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+/* Курсивное начертание Cardo. */
+
+@font-face {
+    font-family: "Cardo";
+
+    src: url("../fonts/Cardo/Cardo-Italic.ttf")
+    format("truetype");
+
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+/* Все элементы с lang="he" получают шрифт Cardo. Это особенно важно для таблиц Торы,
+где русский и иврит находятся рядом. */
+
+[lang="he"] {
+    font-family: "Cardo", "Times New Roman", serif;
+}
