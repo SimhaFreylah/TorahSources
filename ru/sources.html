@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Источники | TorahSources</title>
+
+    <!-- Основные стили -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="../images/180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/180.png">
+
+
+    <!-- Локальное оформление страницы «Источники» -->
+    <style>
+        .model-article {
+            width: 100%;
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 0 20px 48px;
+            box-sizing: border-box;
+        }
+
+        .model-heading {
+            position: relative;
+            max-width: 100%;
+            margin: 50px auto 46px;
+            padding: 34px 56px 30px;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.55);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+            background:
+                    linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.055), transparent);
+        }
+
+        .model-heading::before,
+        .model-heading::after {
+            content: "✦";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #d4af37;
+            font-size: 15px;
+            line-height: 1;
+            background: #000;
+            padding: 0 12px;
+        }
+
+        .model-heading::before { top: -8px; }
+        .model-heading::after { bottom: -8px; }
+
+        .model-heading h2 {
+            max-width: 100%;
+            margin: 0 auto;
+            font-size: clamp(30px, 2.6vw, 43px);
+            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: 0.25px;
+            text-wrap: balance;
+        }
+
+        .model-heading .model-subtitle {
+            margin: 11px 0 0;
+            padding: 0;
+            text-align: center;
+            text-indent: 0;
+            color: #c9c9c9;
+            font-size: clamp(18px, 1.5vw, 24px);
+            line-height: 1.25;
+            font-style: italic;
+            letter-spacing: 0.8px;
+        }
+
+        .model-article .new-paragraph {
+            max-width: 800px;
+            margin: 0 auto 24px;
+            line-height: 1.58;
+        }
+
+        .model-article .opening-paragraph::first-letter {
+            float: left;
+            margin: 5px 10px 0 0;
+            color: #d4af37;
+            font-size: 3.15em;
+            line-height: 0.82;
+            font-weight: 700;
+        }
+
+        .source-mark {
+            display: inline;
+            font-weight: 700;
+            padding: 0.02em 0.16em;
+            border-bottom: 1px solid currentColor;
+            border-radius: 3px;
+            text-shadow: 0 0 12px currentColor;
+        }
+
+        .source-e   { color: #8fbde8; }
+        .source-rj  { color: #c9a496; }
+        .source-j   { color: #d98f74; }
+        .source-rp  { color: #c3cec0; }
+        .source-p   { color: #b9d4b5; }
+        .source-h   { color: #39ff14; }
+        .source-d   { color: #b77cff; }
+        .source-dtr { color: #d4af37; }
+        .source-r   { color: #b8b8b8; }
+
+        .date-mark {
+            white-space: nowrap;
+            color: #d2d2d2;
+            font-style: italic;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .scholarly-term,
+        .work-title {
+            font-style: italic;
+        }
+
+        .work-title {
+            color: #efefef;
+            font-weight: 600;
+        }
+
+        .he-term {
+            font-style: normal;
+            white-space: nowrap;
+        }
+
+        .complex-card {
+            max-width: 800px !important;
+            padding: 17px 22px 17px 26px;
+            border-left: 3px solid #d4af37;
+            border-radius: 0 10px 10px 0;
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.07), transparent 76%);
+        }
+
+        .model-conclusion {
+            max-width: 800px !important;
+            margin-top: 34px !important;
+            padding: 24px 28px;
+            border: 1px solid rgba(212, 175, 55, 0.30);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.018);
+        }
+
+        .formation-title {
+            max-width: 800px;
+            margin: 38px auto 16px;
+            text-align: center;
+            color: #dedede;
+            font-style: italic;
+        }
+
+        .formation-chain {
+            max-width: 800px;
+            margin: 0 auto 42px;
+            padding: 22px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px 12px;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .formation-stage {
+            display: inline-flex;
+            align-items: center;
+            min-height: 34px;
+            padding: 5px 11px;
+            border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.025);
+            font-size: 0.92em;
+        }
+
+        .formation-arrow {
+            color: #777;
+            font-size: 1.08em;
+        }
+
+        .source-key {
+            width: calc(100% - 40px);
+            max-width: 800px;
+            box-sizing: border-box;
+            margin: 34px auto 18px;
+            padding: 18px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px 16px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.018);
+        }
+
+        .source-key-title {
+            margin-right: 4px;
+            color: #bdbdbd;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .source-key .source-mark {
+            border-bottom: 0;
+            padding: 3px 7px;
+            text-shadow: none;
+        }
+
+        .back-home {
+            text-align: center;
+            margin: 42px 0 12px;
+        }
+
+        .back-home a {
+            display: inline-block;
+            padding: 10px 24px;
+            border: 1px solid #666;
+            border-radius: 8px;
+            color: inherit;
+            text-decoration: none;
+            transition: border-color .2s ease, color .2s ease, transform .2s ease;
+        }
+
+        .back-home a:hover {
+            color: #d4af37;
+            border-color: #d4af37;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 760px) {
+            .model-article { padding: 0 16px 36px; }
+            .model-heading { margin: 34px auto 34px; padding: 27px 14px 24px; }
+            .model-article .new-paragraph { line-height: 1.52; }
+            .complex-card, .model-conclusion { padding: 18px 18px 18px 20px; }
+            .formation-chain { padding: 18px 12px; gap: 8px; }
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="site-header">
+
+    <!-- Верхняя часть шапки -->
+    <div class="header-top">
+
+        <!-- Название сайта -->
+        <div class="top-left">
+            <a href="index.html"
+               class="site-title-link"
+               style="color: inherit; text-decoration: none;">
+                <h1 class="site-title">TorahSources</h1>
+            </a>
+        </div>
+
+        <!-- Логотип -->
+        <div class="top-center">
+            <a href="index.html" aria-label="На главную страницу">
+                <img
+                        class="site-logo"
+                        src="../images/TorahSourcesHD.png"
+                        alt="TorahSources logo"
+                ></a>
+        </div>
+
+        <!-- Поиск -->
+        <div class="top-right">
+            <form class="search-form" action="#" method="get">
+                <input
+                        type="text"
+                        name="q"
+                        placeholder="Search"
+                        aria-label="Поиск"
+                >
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Нижняя часть шапки -->
+    <div class="header-bottom">
+        <!-- Левая часть -->
+        <div class="bottom-left">
+            <!-- Переключение языков -->
+            <div class="language-switch">
+                <a href="../en/index.html" lang="en">EN</a>
+                <a href="index.html" lang="ru">RU</a>
+                <a href="../he/index.html" lang="he" dir="rtl">
+                    עב
+                </a>
+            </div>
+
+
+            <!-- Основное меню -->
+            <nav class="left-menu" aria-label="Основная навигация">
+                <ul class="menu">
+
+                    <!-- Тора -->
+                    <li class="menu-item">
+                        <a href="torah/reader.html?book=bereshit&chapter=1">Тора</a>
+                    </li>
+
+                    <!-- Статьи -->
+                    <li class="menu-item has-submenu">
+                        <a href="#">Статьи</a>
+
+                        <ul class="submenu">
+                            <li>
+                                <a href="articles/all-articles.html">Все статьи</a>
+                            </li>
+
+                            <li>
+                                <a href="articles/topics.html">По темам</a>
+                            </li>
+
+                            <li>
+                                <a href="articles/torah-books.html">По книгам Торы</a>
+                            </li>
+
+
+                            <!-- По источникам -->
+                            <li class="has-submenu">
+
+                                <a href="#">По источникам</a>
+
+                                <ul class="submenu submenu-right">
+
+                                    <li>
+                                        <a href="articles/source-j.html">J</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="articles/source-e.html">E</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="articles/source-p.html">P</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="articles/source-h.html">H</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="articles/source-d.html">D</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="articles/source-dtr.html">Dtr</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="articles/source-r.html">R</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <!-- Видео -->
+                    <li class="menu-item">
+                        <a href="#">Видео-обзор книг</a>
+                    </li>
+
+                    <!-- Источники -->
+                    <li class="menu-item">
+                        <a
+                                href="sources.html"
+                                aria-current="page"
+                                style="color: #d4af37;"
+                        >Источники</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <!-- Центральная часть -->
+        <div class="bottom-center"></div>
+
+
+        <!-- Правая часть -->
+        <div class="bottom-right">
+            <nav class="right-menu" aria-label="Дополнительная навигация">
+                <a href="about.html">О проекте</a>
+                <a href="contacts.html">Контакты</a>
+                <a href="support.html">Поддержать</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+
+<!-- Линия под шапкой -->
+<hr style="
+    border: none;
+    height: 3px;
+    background-color: gray;
+    width: 100%;
+    margin: 0;
+">
+
+
+
+<!-- =========================================================
+     ОСНОВНОЕ СОДЕРЖАНИЕ
+========================================================= -->
+
+<main>
+
+
+
+    <section class="model-article">
+
+
+
+        <div class="model-heading">
+            <h2>Комбинированный подход документальной теории и теории дополнений</h2>
+            <p class="model-subtitle">Рабочая модель</p>
+        </div>
+
+
+
+        <p class="new-paragraph opening-paragraph">
+            Изначально в древнем Израиле существовал <em>широкий пласт устных преданий</em>:
+            рассказы о предках, локальные легенды о священных местах, этиологические мифы,
+            родовые воспоминания, культовые предания, древняя поэзия и правовые обычаи.
+            Эти традиции не составляли единой книги и могли существовать вариативно,
+            причём форма каждого рассказа во многом зависела от самого рассказчика.
+            Этот ранний, преимущественно устный и мифотворческий этап условно можно
+            датировать приблизительно <span class="date-mark">с -11 по –9 век</span>.
+        </p>
+
+
+        <p class="new-paragraph">
+            Примерно на рубеже <span class="date-mark">-9 /-8 века</span> в Северном Израильском царстве начинает
+            складываться <em>письменный комплекс преданий</em>. Здесь возникает первая заметная
+            попытка соединить отдельные рассказы о предках, Исходе и откровении
+            в более продолжительный исторический нарратив. Этот северный пласт
+            обозначается как <strong class="source-mark source-e">Элохистская традиция — E-источник</strong>.
+        </p>
+
+
+        <p class="new-paragraph">
+            К E-традиции относятся рассказы о патриархах, предания об Исходе,
+            откровении и заключении Завета, а также один из древнейших правовых
+            комплексов Торы — прежде всего так называемая
+            <strong class="work-title">Книга Завета</strong> в Шмот 20:22–23:33, ядром которой являются
+            законы Шмот 21–23. Самостоятельный текст E до нас не дошёл:
+            он сохранился лишь фрагментарно внутри позднейшей композиции Торы.
+            Тем не менее его литературный и богословский профиль во многих местах
+            остаётся различимым. Для него характерны имя
+            <strong>Элохим (<span class="he-term" lang="he" dir="rtl">אֱלֹהִים</span>)</strong>
+            в ранних повествованиях, особая роль пророков, снов, посланников
+            и посредников откровения, традиция горы
+            <strong>Хорев (<span class="he-term" lang="he" dir="rtl">חֹרֵב</span>)</strong>,
+            а также повышенное внимание к Завету, нравственным требованиям
+            и пророческому авторитету.
+        </p>
+
+
+        <p class="new-paragraph">
+            Параллельно в Иудее складывается другой корпус преданий, условно обозначаемый
+            как <strong class="source-mark source-j">Яхвистская традиция — J-источник</strong>.
+            Первоначально это также, не единое произведение, а совокупность южных рассказов,
+            культовых традиций, благословений, генеалогических преданий и древней поэзии.
+            Некоторые ранние поэтические тексты, такие как <em class="work-title">Песнь Мириам</em> или <em class="work-title">Песнь Деворы</em>,
+            вероятно, древнее самих литературных источников J и E и могли существовать
+            независимо, а позднейшие авторы уже включали подобную поэзию
+            в свои повествования.
+        </p>
+
+
+        <p class="new-paragraph">
+            Яхвистский материал отличается более непосредственным и антропоморфным
+            изображением божества. Яхве
+            (<span lang="he" dir="rtl">יהוה</span>) ходит, говорит с человеком
+            непосредственно, испытывает гнев, ревность, сожаление, милость и сострадание.
+            Бог здесь одновременно грозен и близок человеку. В отличие от более отвлечённых
+            позднейших богословских систем, ранние рассказы J сохраняют многие черты
+            архаического религиозного мировоззрения древнего Израиля.
+        </p>
+
+
+        <p class="new-paragraph">
+            Важно подчеркнуть, что в <strong><span class="date-mark">-9 –8 вв.</span></strong> ни северные тексты E,
+            ни южные тексты J ещё не обязательно представляли собой две законченные
+            «книги» в классическом понимании <em class="scholarly-term">документальной гипотезы</em>. Скорее речь могла
+            идти о нескольких литературных комплексах, циклах и локальных версиях
+            преданий. До нас дошла лишь часть этого материала, уже включённая
+            в значительно более позднюю редакционную конструкцию.
+        </p>
+
+
+        <p class="new-paragraph">
+            Переломным событием становится
+            <strong>падение Самарии и Северного Израильского царства в <span class="date-mark">-722 г.</span></strong>
+            После ассирийского завоевания часть северной образованной элиты — писцы,
+            священнослужители, чиновники и носители местных традиций — переселяется
+            в Иудею. Вместе с ними на юг попадают и северные литературные предания.
+        </p>
+
+
+        <p class="new-paragraph">
+            Именно после этого, начинается активное взаимодействие северной и южной
+            традиций. Некоторые северные тексты E подвергаются южной переработке:
+            к ним добавляются яхвистские оценки, богословские комментарии,
+            новые развязки и пояснения. Такие вмешательства удобно обозначать
+            как работу <strong class="source-mark source-rj">Яхвистского редактора — rJ</strong>.
+        </p>
+
+
+        <p class="new-paragraph">
+            Одновременно расширяется и собственно южный повествовательный корпус J.
+            В него включаются рассказы о происхождении мира и человечества,
+            Адаме и Хаве, первых поколениях людей, древнем Потопе и других сюжетах,
+            часть которых обнаруживает связь с более широким месопотамским культурным
+            миром. Так постепенно формируется <strong>E/J-комплекс</strong>.
+        </p>
+
+
+        <p class="new-paragraph">
+            Однако и этот E/J-комплекс ещё не следует представлять как окончательную Тору.
+            Он остаётся развивающимся собранием преданий: различные рассказы могут
+            существовать параллельно и дополняться новыми редакционными слоями.
+            Именно поэтому позднейшая Тора сохраняет <em>редакционные швы</em>.
+        </p>
+
+
+        <p class="new-paragraph">
+            Следующий важнейший этап связан с возникновением
+            <strong class="source-mark source-d">Девтерономического источника — D</strong>.
+            Его древнейшее литературное ядро отождествляется прежде всего
+            с законодательным корпусом <strong>Дварим 12–26</strong>.
+            Это ядро связывается с писцовым кругом царя Йошиягу и, условно,
+            с окружением царского писца
+            <strong>Шафана (<span class="he-term" lang="he" dir="rtl">שָׁפָן</span>)</strong>.
+        </p>
+
+
+        <p class="new-paragraph">
+            Около <span class="date-mark">-622 года</span>, во время реформы Йошиягу, появляется программный текст,
+            направленный на религиозную и политическую централизацию Иудеи.
+            Его центральными идеями становятся уничтожение местных культов,
+            борьба с почитанием иных богов, исключительное служение Яхве
+            и сосредоточение жертвенного культа в одном избранном месте — Иерусалиме.
+        </p>
+
+
+        <p class="new-paragraph">
+            D обладает ярко выраженным собственным языком, стилем и богословием
+            и отличается от более ранних повествовательных традиций E и J.
+            При этом авторы / составители D прекрасно знали раннеее
+            повествовательное наследие и переосмысливали его в соответствии
+            с новой программой Завета, закона и централизации культа.
+        </p>
+
+
+        <p class="new-paragraph">
+            После событий <span class="date-mark">-597 года</span>, а особенно после разрушения Иерусалима
+            и Первого Храма в <span class="date-mark">-586 году</span>, последователи девтерономической школы
+            переосмысливают всю историю Израиля. Национальная катастрофа объясняется
+            не поражением Яхве, а нарушением Израилем Завета, служением иным богам
+            и отказом следовать Закону.
+        </p>
+
+
+        <p class="new-paragraph">
+            Так формируется
+            <strong class="source-mark source-dtr">Девтерономистическая история — Dtr</strong>.
+            Её авторы впервые создают масштабное последовательное богословское
+            повествование об истории Израиля от вступления в землю
+            до разрушения царства.
+        </p>
+
+
+        <p class="new-paragraph">
+            К этому комплексу относятся редакционные рамки книги Дварим —
+            прежде всего главы 1–11 и 27–34, а затем книги Йегошуа, Шофетим,
+            Шемуэль I–II и Мелахим I–II. Эти произведения объединяет общая
+            историческая концепция: верность Завету приносит благополучие,
+            отступничество приводит к политической и национальной катастрофе.
+            История тем самым превращается в богословское объяснение судьбы народа.
+        </p>
+
+
+        <p class="new-paragraph">
+            Параллельно, главным образом в период Вавилонского изгнания
+            и первых десятилетий после него, приблизительно <span class="date-mark">-580–520 гг.</span>,
+            формируется <strong class="source-mark source-p">Жреческая традиция — P</strong>.
+        </p>
+
+
+        <p class="new-paragraph">
+            Жреческие авторы систематизируют культовые предания, родословия,
+            календарные нормы, законы чистоты, жертвоприношений и устройства святилища.
+            Значительная часть этого материала сосредоточена в книгах Ваикра
+            и Бемидбар. Внутри самой жреческой школы также различимы различные
+            стадии развития; <strong class="source-mark source-h">Кодекс святости — H</strong>, особенно
+            Ваикра 17–26, рассматривается как более поздний слой внутри P-традиции.
+        </p>
+
+
+        <p class="new-paragraph">
+            Но жреческие писцы не ограничиваются созданием отдельных культовых текстов.
+            Они создают и собственную версию истории: рассказ о сотворении мира,
+            жреческую версию Потопа, генеалогические схемы, хронологию поколений,
+            рассказы о Завете, теофаниях и устройстве Мишкана.
+        </p>
+
+
+        <p class="new-paragraph">
+            Там, где жреческий материал не просто существует параллельно более древним
+            рассказам, но непосредственно перерабатывает, связывает или дополняет
+            E/J-комплекс, такие вмешательства удобно обозначать как деятельность
+            <strong class="source-mark source-rp">Жреческого редактора — rP</strong>.
+        </p>
+
+
+        <p class="new-paragraph">
+            Задачей жреческой школы становится создание нового понимания Израиля
+            после исчезновения монархии. Израиль теперь определяется не столько
+            через царя, сколько через
+            <strong>Завет, святость, происхождение, культ, календарь и священство</strong>.
+            Центром коллективной жизни становится святилище, а история мира
+            выстраивается как последовательность установленных Богом порядков и Заветов.
+        </p>
+
+
+        <p class="new-paragraph">
+            Таким образом, к началу эпохи Второго Храма существуют по меньшей мере
+            два крупных литературно-богословских комплекса.
+        </p>
+
+
+        <p class="new-paragraph complex-card">
+            <strong>Первый</strong> — развивающийся
+            <strong>пятикнижный материал <span class="source-e">E</span>/<span class="source-j">J</span>/<span class="source-p">P</span>/<span class="source-h">H</span></strong>, включающий древние
+            северные и южные предания, а также многочисленные жреческие дополнения
+            и редакции.
+        </p>
+
+
+        <p class="new-paragraph complex-card">
+            <strong>Второй</strong> — <strong><span class="source-d">D</span>/<span class="source-dtr">Dtr</span>-комплекс</strong>,
+            включающий законодательное ядро Дварим и большую историческую
+            композицию от Дварим до Мелахим.
+        </p>
+
+
+        <p class="new-paragraph">
+            Наконец около <span class="date-mark">-450–350 гг.</span>, происходит завершающий этап формирования Торы.
+            Поздний <strong class="source-mark source-r">Редактор — R</strong> соединяет существующие литературные
+            комплексы, сохраняет параллельные версии рассказов, создаёт переходы
+            между ними, добавляет отдельные гармонизирующие фразы и формирует
+            общую последовательность повествования.
+        </p>
+
+
+        <p class="new-paragraph">
+            Принципиально важно, что финальный редактор далеко не всегда устраняет
+            противоречия между источниками. Напротив, во многих случаях он сознательно
+            сохраняет обе традиции рядом. Именно поэтому в современном тексте Торы
+            существуют двойные рассказы о сотворении, переплетённые версии Потопа,
+            различные рассказы о призвании Моше, повторяющиеся законодательства
+            и несовпадающие версии одних и тех же событий.
+        </p>
+
+
+        <p class="new-paragraph">
+            <strong>Также важно понимать:</strong> «поздность» литературного корпуса не означает автоматически
+            «поздность» всех его идей и преданий. Даже если
+            <strong style="color: #b9d4b5;">жреческий источник (P)</strong>
+            как оформленный корпус возник после книги Шафана
+            (<strong style="color: #b77cff;">Дварим 12–26</strong>),
+            сами его нормы, обряды и ритуальные схемы могут быть значительно древнее,
+            уходя корнями в раннеизраильские культы.
+        </p>
+
+        <p class="new-paragraph">
+            Так, корпус
+            <strong style="color: #b9d4b5;">P</strong>
+            (книга Ваикра, значительная часть Шмот 25–40 и Бемидбар)
+            был составлен в эпоху Вавилона (<strong>−6 век</strong>), но его законы
+            жертвоприношения, ритуалы крови, обряды очищения, структура святилища
+            и правила священства часто не изобретены заново, а
+            <em>кодифицированы</em>.
+        </p>
+
+        <p class="new-paragraph">
+            То есть:
+            <strong style="color: #b9d4b5;">P</strong> —
+            не творец ритуалов как таковых, а скорее
+            <em>архивариус древних практик</em>, приводящий их к системности
+            и богословскому единству. Так, например:
+        </p>
+
+        <ul style="
+    max-width: 800px;
+    margin: 20px auto 25px;
+    padding-left: 45px;
+    line-height: 1.65;
+">
+
+            <li style="margin-bottom: 14px;">
+                <strong>Ваикра 1–7</strong> содержит архаичные жертвенные категории:
+                олá (<span lang="he" dir="rtl">עֹלָה</span>) — всесожжение;
+                минхá (<span lang="he" dir="rtl">מִנְחָה</span>) — приношение из зерна;
+                шламим (<span lang="he" dir="rtl">שְׁלָמִים</span>) — жертва общности,
+                существовавшие задолго до
+                <strong style="color: #b9d4b5;">P</strong>.
+            </li>
+
+            <li style="margin-bottom: 14px;">
+                <strong>Ваикра 16</strong> (Йом-Кипур) структурирует очень древний
+                пустынный ритуал с Азазелем.
+            </li>
+
+            <li style="margin-bottom: 14px;">
+                <strong>Ваикра 11–15</strong> представляет своего рода
+                <em>«анатомию нечистоты»</em>, основанную на древней ритуально-магической
+                логике — в частности, на представлениях о нечистоте вследствие
+                прикосновения к трупу или падали. Подобная логика присутствует,
+                например, в законах Хеттов (<strong>−14 век</strong>),
+                египетских текстах о ритуальной чистоте жрецов и других
+                древневосточных традициях.
+            </li>
+
+        </ul>
+
+        <p class="new-paragraph">
+            Поэтому в библейском тексте возникает важный парадокс:
+            <strong>более поздний по дате литературный текст может быть носителем
+                значительно более древних ритуальных традиций.</strong>
+            Это необходимо учитывать при датировке отдельных законов, обрядов
+            и представлений внутри поздних литературных корпусов.
+        </p>
+
+
+        <p class="new-paragraph">
+            В итоге результатом этого длительного процесса становится
+            <strong><em>пятичастная структура Торы</em></strong> —
+            Берешит, Шмот, Ваикра, Бемидбар и Дварим.
+        </p>
+
+
+        <p class="new-paragraph model-conclusion">
+            Таким образом, данная комбинированная модель в своей основе согласуется
+            с <em class="scholarly-term">документальной теорией</em> — в том виде, в каком она представлена
+            у Велльгаузена, Фридмана и Бадена, — и исходит из того, что за источниками
+            E, J и P стояли письменные традиции и тексты. Причём исходный объём
+            этих традиций, был шире того материала, который в итоге
+            сохранился внутри Торы. В то же время модель предполагает, что позднейшие
+            литературные слои не только существовали рядом с ранними, но и активно
+            перерабатывали их: дополняли новыми сюжетами, вводили собственные
+            богословские акценты, переосмысливали отдельные эпизоды и изменяли
+            их композицию. Именно такие стадии редакционной работы условно
+            обозначаются как rJ и rP. В этом отношении модель солидарна с <em class="scholarly-term">теорией дополнений</em>, прежде всего в её развитии у <em>Ван Сетерса</em>.
+        </p>
+
+
+
+
+        <!-- =========================================================
+         УПРОЩЁННАЯ СХЕМА ФОРМИРОВАНИЯ ТЕКСТА
+    ========================================================= -->
+
+        <div style="
+    max-width: 800px;
+    margin: 55px auto 45px;
+">
+
+            <p style="
+        margin: 0 0 22px;
+        text-align: center;
+        text-indent: 0;
+        font-size: 1.12em;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+    ">
+                Приблизительный процесс формирования текста можно представить следующим образом:
+            </p>
+
+
+            <div class="table-wrapper">
+
+                <table style="
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 10px;
+            overflow: hidden;
+        ">
+
+                    <thead>
+                    <tr style="
+                background: rgba(255, 255, 255, 0.07);
+            ">
+
+                        <th style="
+                    width: 72%;
+                    padding: 14px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+                    text-align: left;
+                    font-size: 1.03em;
+                    letter-spacing: 0.3px;
+                ">
+                            Типология текста
+                        </th>
+
+                        <th style="
+                    width: 28%;
+                    padding: 14px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+                    text-align: center;
+                    font-size: 1.03em;
+                    letter-spacing: 0.3px;
+                ">
+                            Время появления
+                        </th>
+
+                    </tr>
+                    </thead>
+
+
+                    <tbody>
+
+                    <!-- 1 -->
+                    <tr>
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                ">
+                            <strong>1. Устные предания</strong><br>
+                            <span style="
+                        opacity: 0.72;
+                        font-size: 0.92em;
+                        font-style: italic;
+                    ">
+                        мифы, родовые рассказы, древняя поэзия, культовые и правовые традиции
+                    </span>
+                        </td>
+
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                    text-align: center;
+                    white-space: nowrap;
+                ">
+                            −11 / −9 век
+                        </td>
+                    </tr>
+
+
+                    <!-- 2 -->
+                    <tr style="background: rgba(255,255,255,0.018);">
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                ">
+                            <strong>
+                                2. Северные тексты —
+                                <span class="source-e" style="color: #8fbde8;">
+                            E-источник
+                        </span>
+                            </strong><br>
+
+                            <span style="
+                        opacity: 0.72;
+                        font-size: 0.92em;
+                        font-style: italic;
+                    ">
+                        Элохистская традиция Северного Израильского царства
+                    </span>
+                        </td>
+
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                    text-align: center;
+                    white-space: nowrap;
+                ">
+                            −8 век
+                        </td>
+                    </tr>
+
+
+                    <!-- 3 -->
+                    <tr>
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                ">
+                            <strong>
+                                3. Южные тексты —
+                                <span class="source-j" style="color: #d98f74;">
+                            J-источник
+                        </span>
+                            </strong><br>
+
+                            <span style="
+                        opacity: 0.72;
+                        font-size: 0.92em;
+                        font-style: italic;
+                    ">
+                        Яхвистская традиция Иудеи
+                    </span>
+                        </td>
+
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                    text-align: center;
+                    white-space: nowrap;
+                ">
+                            −8 век
+                        </td>
+                    </tr>
+
+
+                    <!-- 4 -->
+                    <tr style="background: rgba(255,255,255,0.018);">
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                ">
+                            <strong>
+                                4. Объединение E/J —
+                                <span class="source-rj" style="color: #c9a496;">
+                            редактор rJ
+                        </span>
+                            </strong><br>
+
+                            <span style="
+                        opacity: 0.72;
+                        font-size: 0.92em;
+                        font-style: italic;
+                    ">
+                        южная редакция и дополнение северных текстов
+                    </span>
+                        </td>
+
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                    text-align: center;
+                    white-space: nowrap;
+                ">
+                            −7 / −6 век
+                        </td>
+                    </tr>
+
+
+                    <!-- 5 -->
+                    <tr>
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                ">
+                            <strong>
+                                5. Книга Шафана —
+                                <span class="source-d" style="color: #b77cff;">
+                            D
+                        </span>
+                            </strong><br>
+
+                            <span style="
+                        opacity: 0.72;
+                        font-size: 0.92em;
+                        font-style: italic;
+                    ">
+                        законодательное ядро Дварим 12–26
+                    </span>
+                        </td>
+
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                    text-align: center;
+                    white-space: nowrap;
+                ">
+                            −622 год
+                        </td>
+                    </tr>
+
+
+                    <!-- 6 -->
+                    <tr style="background: rgba(255,255,255,0.018);">
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                ">
+                            <strong>
+                                6. Девтерономистические историки —
+                                <span class="source-dtr" style="color: #d4af37;">
+                            Dtr
+                        </span>
+                            </strong><br>
+
+                            <span style="
+                        opacity: 0.72;
+                        font-size: 0.92em;
+                        font-style: italic;
+                    ">
+                        исторический корпус от Дварим до Мелахим
+                    </span>
+                        </td>
+
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                    text-align: center;
+                    white-space: nowrap;
+                ">
+                            −6 / −5 век
+                        </td>
+                    </tr>
+
+
+                    <!-- 7 -->
+                    <tr>
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                ">
+                            <strong>
+                                7. Жреческая редакция корпуса E/J —
+                                <span class="source-rp" style="color: #c3cec0;">
+                            rP
+                        </span>
+                            </strong><br>
+
+                            <span style="
+                        opacity: 0.72;
+                        font-size: 0.92em;
+                        font-style: italic;
+                    ">
+                        переработка и дополнение более ранних повествовательных текстов
+                    </span>
+                        </td>
+
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                    text-align: center;
+                    white-space: nowrap;
+                ">
+                            −6 / −5 век
+                        </td>
+                    </tr>
+
+
+                    <!-- 8 -->
+                    <tr style="background: rgba(255,255,255,0.018);">
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                ">
+                            <strong>
+                                8. Жреческий корпус —
+                                <span class="source-p" style="color: #b9d4b5;">
+                            P-источник
+                        </span>
+                            </strong><br>
+
+                            <span style="
+                        opacity: 0.72;
+                        font-size: 0.92em;
+                        font-style: italic;
+                    ">
+                        генеалогии, культ, календарь, святилище и жреческая история
+                    </span>
+                        </td>
+
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                    text-align: center;
+                    white-space: nowrap;
+                ">
+                            −6 век
+                        </td>
+                    </tr>
+
+
+                    <!-- 9 -->
+                    <tr>
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                ">
+                            <strong>
+                                9. Поздний жреческий слой —
+                                <span class="source-h" style="color: #39ff14;">
+                            H
+                        </span>
+                            </strong><br>
+
+                            <span style="
+                        opacity: 0.72;
+                        font-size: 0.92em;
+                        font-style: italic;
+                    ">
+                        Кодекс святости и позднее развитие жреческого богословия
+                    </span>
+                        </td>
+
+                        <td style="
+                    padding: 13px 18px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+                    text-align: center;
+                    white-space: nowrap;
+                ">
+                            −5 век
+                        </td>
+                    </tr>
+
+
+                    <!-- 10 -->
+                    <tr style="background: rgba(255,255,255,0.018);">
+                        <td style="
+                    padding: 13px 18px;
+                ">
+                            <strong>
+                                10. Финальная редакция —
+                                <span class="source-r" style="color: #b8b8b8;">
+                            R
+                        </span>
+                            </strong><br>
+
+                            <span style="
+                        opacity: 0.72;
+                        font-size: 0.92em;
+                        font-style: italic;
+                    ">
+                        соединение литературных комплексов и оформление Торы
+                    </span>
+                        </td>
+
+                        <td style="
+                    padding: 13px 18px;
+                    text-align: center;
+                    white-space: nowrap;
+                ">
+                            −4 век
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <hr class="divider">
+
+    </section>
+
+
+    <!-- =================================================
+         НАЗАД
+    ================================================== -->
+    <div class="back-home">
+        <a href="index.html">← На главную</a>
+    </div>
+
+</main>
+
+
+<!-- =========================================================
+     НИЖНЯЯ ЛИНИЯ
+========================================================= -->
+
+<hr class="divider">
+
+<div class="source-key" aria-label="Условные обозначения источников">
+    <span class="source-key-title">Sources:</span>
+    <span class="source-mark source-e">Elohist Source (E)</span>
+    <span class="source-mark source-rj">Jahwist Redactor (rJ)</span>
+    <span class="source-mark source-j">Jahwist Source (J)</span>
+    <span class="source-mark source-rp">Priestly Redactor (rP)</span>
+    <span class="source-mark source-p">Priestly Source (P)</span>
+    <span class="source-mark source-h">Holiness Code (H)</span>
+    <span class="source-mark source-d">Deuteronomic Source (D)</span>
+    <span class="source-mark source-dtr">Deuteronomistic Redactor (Dtr)</span>
+    <span class="source-mark source-r">Redactor (R)</span>
+</div>
+
+
+
+
+</body>
+
+</html>
