@@ -7,9 +7,10 @@
    1. Кнопка поддержки
    2. Блок "Дополнительно"
    3. Блок "Сноски"
-   4. Логотип ридера
-   5. Переключатель языков ридера
-   6. Вводный AI-блок
+   4. Блок "Источники"
+   5. Логотип ридера
+   6. Переключатель языков ридера
+   7. Вводный AI-блок
    ========================================================= */
 
 
@@ -162,11 +163,8 @@
 
 .footnotes-box summary {
     padding: 14px 20px;
-
     list-style: none;
-
     border-bottom: 1px solid rgba(120, 160, 220, 0.25);
-
     cursor: pointer;
 }
 
@@ -182,7 +180,6 @@
 
 .footnotes-title {
     color: #ffffff;
-
     font-size: 16px;
     font-weight: 700;
 }
@@ -196,21 +193,16 @@
 
 
 /* =========================================================
-   04. ОДНА СНОСКА
+   ОДНА СНОСКА
    ========================================================= */
 /* Каждая сноска состоит из двух колонок: [номер] [текст] */
 
 .footnote-item {
     display: grid;
-
     grid-template-columns: 55px 1fr;
-
     column-gap: 12px;
-
     margin: 0 0 18px;
-
     color: #d8e6ff;
-
     font-size: 17px;
     line-height: 1.55;
 }
@@ -218,18 +210,14 @@
 
 /* У последней сноски нет нижнего отступа */
 
-.footnote-item:last-child {
-    margin-bottom: 0;
-}
+.footnote-item:last-child {margin-bottom: 0;}
 
 
 /* Номер сноски */
 
 .footnote-num {
     color: #6fa8ff;
-
     font-weight: 700;
-
     text-align: right;
 }
 
@@ -238,7 +226,6 @@
 
 .footnote-text {
     color: #d8e6ff;
-
     text-align: justify;
     text-align-last: left;
 }
@@ -246,21 +233,16 @@
 
 /* Курсив сохраняет основной цвет */
 
-.footnote-text i {
-    color: inherit;
-}
+.footnote-text i {color: inherit;}
 
 
 /* Ссылка внутри сноски */
 
 .footnote-text a {
     display: block;
-
     color: #6fa8ff;
-
     text-align: justify;
     text-align-last: left;
-
     text-decoration: none;
 }
 
@@ -269,13 +251,138 @@
 
 .footnote-text a:hover {
     text-decoration-line: underline;
-
     text-decoration-thickness: 0.5px;
-
     text-underline-offset: 4px;
-
     text-decoration-color: rgba(111, 168, 255, 0.85);
 }
+
+
+
+/* =========================================================
+  04. БЛОК "ИСТОЧНИКИ"
+   Source Key
+========================================================= */
+
+.source-key {
+    width: calc(100% - 40px);
+    max-width: 1400px;
+    margin: 42px auto;
+    padding: 32px 38px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.012);
+}
+
+
+/* Внутреннее расположение элементов */
+
+.source-key-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 42px;
+    row-gap: 24px;
+}
+
+
+/* Заголовок Sources: */
+
+.source-key-title {
+    margin-right: 8px;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.05em;
+    color: #d8d8d8;
+    white-space: nowrap;
+}
+
+
+/* Каждый источник */
+
+.source-key-item {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1.03em;
+    line-height: 1.25;
+    white-space: nowrap;
+    transition:
+            transform 0.18s ease,
+            opacity 0.18s ease,
+            text-shadow 0.18s ease;
+}
+
+
+/* Лёгкая реакция при наведении */
+
+.source-key-item:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+    text-shadow: 0 0 12px currentColor;
+}
+
+
+
+/* =========================================================
+   ЦВЕТА ИСТОЧНИКОВ
+========================================================= */
+
+.source-e {color: #8fbde8;}
+
+.source-rj {color: #c9a496;}
+
+.source-j {color: #d98f74;}
+
+.source-rp {color: #c3cec0;}
+
+.source-p {color: #b9d4b5;}
+
+.source-h {color: #39ff14;}
+
+.source-d {color: #b77cff;}
+
+.source-dtr {color: #d4af37;}
+
+.source-r {color: #b8b8b8;}
+
+
+/* =========================================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .source-key {
+        width: calc(100% - 24px);
+
+        margin: 30px auto;
+        padding: 24px 20px;
+    }
+
+    .source-key-inner {
+        flex-direction: column;
+
+        gap: 14px;
+    }
+
+    .source-key-title {
+        margin: 0 0 5px;
+
+        font-size: 1em;
+    }
+
+    .source-key-item {
+        font-size: 0.96em;
+        white-space: normal;
+        text-align: center;
+    }
+}
+
+
+
+
+
 
 
 /* =========================================================
