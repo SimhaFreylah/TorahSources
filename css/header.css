@@ -6,6 +6,7 @@
    Здесь находятся стили для:
    1. Основного контейнера шапки
    2. Верхней строки
+   2.1 "Источники"
    3. Поиска
    4. Названия сайта
    5. Логотипа
@@ -63,6 +64,129 @@
 .top-right {
     justify-self: end;
 }
+
+
+
+
+
+/* =========================================================
+   02.1 ПУНКТ "РАБОЧАЯ МОДЕЛЬ" В МЕНЮ "ИСТОЧНИКИ"
+   ---------------------------------------------------------
+   Визуально отделяет ссылку на комбинированную рабочую
+   модель от списка отдельных документальных источников.
+========================================================= */
+
+.sources-model-link {
+    /* Разделительная линия под пунктом */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+
+    /* Небольшой отступ перед следующими пунктами меню */
+    margin-bottom: 6px;
+
+    /* Расстояние между текстом и разделительной линией */
+    padding-bottom: 6px;
+}
+
+
+/* Ссылка "Рабочая модель — Комбинированный подход" */
+
+.sources-model-link a {
+    /* Отличает рабочую модель от названий источников */
+    font-style: italic;
+}
+
+
+/* =========================================================
+   ЦВЕТА ИСТОЧНИКОВ В ПОДМЕНЮ "ИСТОЧНИКИ"
+   ---------------------------------------------------------
+   Каждый пункт получает тот же цвет, который используется
+   для соответствующего документального источника
+   по всему сайту TorahSources.
+========================================================= */
+
+
+/* E — Elohist Source */
+.submenu a.source-e,
+.submenu a.source-e:visited {
+    color: #8fbde8;
+}
+
+
+/* rJ — Jahwist Redactor */
+.submenu a.source-rj,
+.submenu a.source-rj:visited {
+    color: #c9a496;
+}
+
+
+/* J — Jahwist Source */
+.submenu a.source-j,
+.submenu a.source-j:visited {
+    color: #d98f74;
+}
+
+
+/* rP — Priestly Redactor */
+.submenu a.source-rp,
+.submenu a.source-rp:visited {
+    color: #c3cec0;
+}
+
+
+/* P — Priestly Source */
+.submenu a.source-p,
+.submenu a.source-p:visited {
+    color: #b9d4b5;
+}
+
+
+/* H — Holiness Code */
+.submenu a.source-h,
+.submenu a.source-h:visited {
+    color: #39ff14;
+}
+
+
+/* D — Deuteronomic Source */
+.submenu a.source-d,
+.submenu a.source-d:visited {
+    color: #b77cff;
+}
+
+
+/* Dtr — Deuteronomistic Redactor */
+.submenu a.source-dtr,
+.submenu a.source-dtr:visited {
+    color: #d4af37;
+}
+
+
+/* R — Final Redactor */
+.submenu a.source-r,
+.submenu a.source-r:visited {
+    color: #b8b8b8;
+}
+
+
+/* =========================================================
+   ЭФФЕКТ ПРИ НАВЕДЕНИИ
+   ---------------------------------------------------------
+   Цвет источника сохраняется, но ссылка слегка подсвечивается.
+========================================================= */
+
+.submenu a.source-e:hover,
+.submenu a.source-rj:hover,
+.submenu a.source-j:hover,
+.submenu a.source-rp:hover,
+.submenu a.source-p:hover,
+.submenu a.source-h:hover,
+.submenu a.source-d:hover,
+.submenu a.source-dtr:hover,
+.submenu a.source-r:hover {
+    opacity: 1;
+    text-shadow: 0 0 9px currentColor;
+}
+
 
 
 /* =========================================================

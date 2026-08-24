@@ -1,0 +1,398 @@
+/* =========================================================
+   SOURCE PAGE — УНИВЕРСАЛЬНЫЙ КОМПОНЕНТ СТРАНИЦ ИСТОЧНИКОВ
+   ---------------------------------------------------------
+   Используется страницами:
+   ru/articles/sources/source-*.html
+
+   Цвет конкретного источника задаётся классом на <body>:
+   source-page-e, source-page-j, source-page-rj и т. д.
+========================================================= */
+
+.source-page {
+    --source-color: #b8b8b8;
+    --source-rgb: 184, 184, 184;
+    --source-light: #eeeeee;
+}
+
+/* E — Elohist Source */
+.source-page-e {
+    --source-color: #8fbde8;
+    --source-rgb: 143, 189, 232;
+    --source-light: #dceeff;
+}
+
+/* rJ — Jahwist Redactor */
+.source-page-rj {
+    --source-color: #c9a496;
+    --source-rgb: 201, 164, 150;
+    --source-light: #ead8d0;
+}
+
+/* J — Jahwist Source */
+.source-page-j {
+    --source-color: #d98f74;
+    --source-rgb: 217, 143, 116;
+    --source-light: #f2c7b8;
+}
+
+/* rP — Priestly Redactor */
+.source-page-rp {
+    --source-color: #c3cec0;
+    --source-rgb: 195, 206, 192;
+    --source-light: #e5ebe3;
+}
+
+/* P — Priestly Source */
+.source-page-p {
+    --source-color: #b9d4b5;
+    --source-rgb: 185, 212, 181;
+    --source-light: #dcebd9;
+}
+
+/* H — Holiness Code */
+.source-page-h {
+    --source-color: #39ff14;
+    --source-rgb: 57, 255, 20;
+    --source-light: #baffad;
+}
+
+/* D — Deuteronomic Source */
+.source-page-d {
+    --source-color: #b77cff;
+    --source-rgb: 183, 124, 255;
+    --source-light: #ddc2ff;
+}
+
+/* Dtr — Deuteronomistic Redactor */
+.source-page-dtr {
+    --source-color: #d4af37;
+    --source-rgb: 212, 175, 55;
+    --source-light: #ead994;
+}
+
+/* R — Redactor */
+.source-page-r {
+    --source-color: #b8b8b8;
+    --source-rgb: 184, 184, 184;
+    --source-light: #e0e0e0;
+}
+
+.source-article {
+    width: 100%;
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+    box-sizing: border-box;
+}
+
+.source-hero {
+    margin: 30px auto 42px;
+    padding: 34px 26px 30px;
+    border: 1px solid rgba(var(--source-rgb), 0.28);
+    border-radius: 14px;
+    background:
+            linear-gradient(
+                    135deg,
+                    rgba(var(--source-rgb), 0.08),
+                    rgba(255, 255, 255, 0.012) 55%,
+                    rgba(var(--source-rgb), 0.025)
+            );
+    text-align: center;
+}
+
+.source-symbol {
+    margin: 0 0 8px;
+    color: var(--source-color);
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.source-title {
+    margin: 0;
+    color: var(--source-color);
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.15;
+}
+
+.source-subtitle {
+    margin: 12px 0 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    font-size: 1.05em;
+}
+
+.source-lead {
+    margin: 30px auto;
+    padding: 20px 22px;
+    border-left: 3px solid var(--source-color);
+    background: rgba(var(--source-rgb), 0.055);
+    line-height: 1.62;
+}
+
+.source-section {
+    margin: 46px auto 0;
+}
+
+.source-section h2 {
+    margin: 0 0 18px;
+    color: var(--source-color);
+    font-size: clamp(24px, 3vw, 31px);
+    line-height: 1.25;
+}
+
+.source-section h3 {
+    margin: 30px 0 12px;
+    font-size: 1.18em;
+}
+
+.source-article .new-paragraph {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.62;
+}
+
+.source-meta {
+    width: 100%;
+    margin: 26px auto 38px;
+    border-collapse: collapse;
+}
+
+.source-meta th,
+.source-meta td {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    vertical-align: top;
+}
+
+.source-meta th {
+    width: 31%;
+    color: rgba(255, 255, 255, 0.68);
+    text-align: left;
+    font-weight: 600;
+}
+
+.source-meta td {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.source-term {
+    color: var(--source-color);
+    font-weight: 700;
+}
+
+.he-term {
+    white-space: nowrap;
+    font-style: normal;
+}
+
+.criteria-list {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: criterion;
+}
+
+.criteria-list li {
+    counter-increment: criterion;
+    position: relative;
+    margin: 0 0 14px;
+    padding: 17px 18px 17px 52px;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.018);
+    line-height: 1.58;
+}
+
+.criteria-list li::before {
+    content: counter(criterion);
+    position: absolute;
+    top: 16px;
+    left: 17px;
+    width: 24px;
+    height: 24px;
+    border: 1px solid rgba(var(--source-rgb), 0.55);
+    border-radius: 50%;
+    color: var(--source-color);
+    text-align: center;
+    line-height: 22px;
+    font-size: 0.88em;
+    font-weight: 700;
+}
+
+.criteria-list strong {
+    color: var(--source-color);
+}
+
+.source-note {
+    margin: 24px 0;
+    padding: 17px 20px;
+    border: 1px solid rgba(212, 175, 55, 0.24);
+    border-radius: 10px;
+    background: rgba(212, 175, 55, 0.035);
+    line-height: 1.58;
+}
+
+.source-note strong {
+    color: #d4af37;
+}
+
+.passage-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.passage-table th,
+.passage-table td {
+    padding: 13px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+.passage-table th {
+    background: rgba(var(--source-rgb), 0.08);
+    color: var(--source-light);
+    text-align: left;
+}
+
+.passage-table th:nth-child(1) {
+    width: 19%;
+}
+
+.passage-table th:nth-child(2) {
+    width: 24%;
+}
+
+.passage-table th:nth-child(3) {
+    width: 37%;
+}
+
+.passage-table th:nth-child(4) {
+    width: 20%;
+}
+
+.passage-link {
+    color: var(--source-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.passage-link:hover {
+    text-decoration: underline;
+}
+
+.corpus-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 22px 0 0;
+}
+
+.corpus-card {
+    padding: 18px 19px;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.018);
+    line-height: 1.55;
+}
+
+.corpus-card h3 {
+    margin: 0 0 9px;
+    color: var(--source-color);
+    font-size: 1.08em;
+}
+
+.aim-list {
+    margin: 18px 0 0;
+    padding-left: 24px;
+}
+
+.aim-list li {
+    margin-bottom: 17px;
+    line-height: 1.6;
+}
+
+.aim-list strong {
+    color: var(--source-color);
+}
+
+.bibliography {
+    margin: 18px 0 0;
+    padding-left: 24px;
+}
+
+.bibliography li {
+    margin-bottom: 16px;
+    line-height: 1.55;
+}
+
+.bibliography a {
+    color: var(--source-color);
+    text-decoration: none;
+}
+
+.bibliography a:hover {
+    text-decoration: underline;
+}
+
+.source-status {
+    margin: 26px 0 0;
+    padding: 20px 22px;
+    border: 1px solid rgba(var(--source-rgb), 0.22);
+    border-radius: 10px;
+    background: rgba(var(--source-rgb), 0.045);
+    line-height: 1.62;
+}
+
+.back-link {
+    display: inline-block;
+    margin: 8px 0 26px;
+    color: rgba(255, 255, 255, 0.68);
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: var(--source-color);
+}
+
+@media (max-width: 760px) {
+    .source-article {
+        padding: 18px 16px 44px;
+    }
+
+    .source-hero {
+        padding: 28px 18px 25px;
+    }
+
+    .source-meta th,
+    .source-meta td {
+        display: block;
+        width: auto;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .source-meta th {
+        padding-bottom: 4px;
+        border-bottom: 0;
+    }
+
+    .source-meta td {
+        padding-top: 0;
+    }
+
+    .corpus-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    .passage-table {
+        min-width: 760px;
+    }
+}
