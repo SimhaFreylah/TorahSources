@@ -1,7 +1,32 @@
+/* =========================================================
+   TORAH SOURCES — СТАТЬИ
+
+   СОДЕРЖАНИЕ
+   1. ДАННЫЕ СТАТЕЙ. Книги, недельные главы, праздники и статьи.
+   2. ЭЛЕМЕНТЫ СТРАНИЦЫ. Вкладки книг, область статей и боковое меню.
+   3. ТЕКУЩИЙ ВЫБОР. Активная книга и недельная глава.
+   4. СПИСОК НЕДЕЛЬНЫХ ГЛАВ. Создание кнопок недельных глав.
+   5. СПИСОК СТАТЕЙ. Вывод статей выбранной главы или праздника.
+   6. ВЫБОР КНИГИ. Переключение Берешит / Шмот / Ваикра / Бемидбар / Дварим / Праздники.
+   7. ЗАПУСК. Первоначальный вывод меню и статей.
+   ========================================================= */
+
+
+/* =========================================================
+   1. ДАННЫЕ СТАТЕЙ
+   Недельные главы, праздники и связанные с ними статьи
+   ========================================================= */
 
 const torahArticlesData = {
+
+    /* ---------------------------------------------------------
+       1.1. БЕРЕШИТ
+       --------------------------------------------------------- */
+
     bereshit: {
+
         title: "Недельные главы",
+
         parashot: [
             { id: "bereshit", label: "Берешит 1:1–6:8" },
             { id: "noach", label: "Ноах 6:9–11:32" },
@@ -16,7 +41,9 @@ const torahArticlesData = {
             { id: "vayigash", label: "Вайигаш 44:18–47:27" },
             { id: "vayechi", label: "Вайехи 47:28–50:26" }
         ],
+
         articles: {
+
             bereshit: [
                 {
                     parasha: "Берешит",
@@ -33,6 +60,7 @@ const torahArticlesData = {
                     link: "articles/eden-j-creation.html"
                 }
             ],
+
             noach: [
                 {
                     parasha: "Ноах",
@@ -45,8 +73,15 @@ const torahArticlesData = {
         }
     },
 
+
+    /* ---------------------------------------------------------
+       1.2. ШМОТ
+       --------------------------------------------------------- */
+
     shmot: {
+
         title: "Недельные главы",
+
         parashot: [
             { id: "shemot", label: "Шмот 1:1–6:1" },
             { id: "vaera", label: "Ваэра 6:2–9:35" },
@@ -57,10 +92,12 @@ const torahArticlesData = {
             { id: "terumah", label: "Трума 25:1-27:19" },
             { id: "tetzaveh", label: "Тецаве 27:20-30:10" },
             { id: "ki-tisa", label: "Ки-Тиса 30:11–34:35" },
-            { id: "vayakhel", label: "Ваякгель 35:1-38:20"},
-            { id: "pekudei", label: "Пкудей 38:21-40:38"}
+            { id: "vayakhel", label: "Ваякгель 35:1-38:20" },
+            { id: "pekudei", label: "Пкудей 38:21-40:38" }
         ],
+
         articles: {
+
             bo: [
                 {
                     parasha: "Бо",
@@ -70,6 +107,7 @@ const torahArticlesData = {
                     link: "articles/passover-lamb.html"
                 }
             ],
+
             yitro: [
                 {
                     parasha: "Итро",
@@ -79,6 +117,7 @@ const torahArticlesData = {
                     link: "articles/two-decalogues-two-sources.html"
                 }
             ],
+
             mishpatim: [
                 {
                     parasha: "Мишпатим",
@@ -88,6 +127,7 @@ const torahArticlesData = {
                     link: "articles/anti-ugaritic-taboo.html"
                 }
             ],
+
             "ki-tisa": [
                 {
                     parasha: "Ки-Тиса",
@@ -100,8 +140,15 @@ const torahArticlesData = {
         }
     },
 
+
+    /* ---------------------------------------------------------
+       1.3. ВАИКРА
+       --------------------------------------------------------- */
+
     vaikra: {
+
         title: "Недельные главы",
+
         parashot: [
             { id: "vayikra", label: "Ваикра 1:1–5:26" },
             { id: "tzav", label: "Цав 6:1–8:36" },
@@ -114,7 +161,9 @@ const torahArticlesData = {
             { id: "behar", label: "Бегар 25:1–26:2" },
             { id: "bechukotai", label: "Бехукотай 26:3–27:34" }
         ],
+
         articles: {
+
             shemini: [
                 {
                     parasha: "Шмини",
@@ -127,8 +176,15 @@ const torahArticlesData = {
         }
     },
 
+
+    /* ---------------------------------------------------------
+       1.4. БЕМИДБАР
+       --------------------------------------------------------- */
+
     bemidbar: {
+
         title: "Недельные главы",
+
         parashot: [
             { id: "bemidbar", label: "Бемидбар 1:1–4:20" },
             { id: "naso", label: "Насо 4:21–7:89" },
@@ -141,7 +197,9 @@ const torahArticlesData = {
             { id: "matot", label: "Матот 30:2-32:42" },
             { id: "masei", label: "Маасей 33:1-36:13" }
         ],
+
         articles: {
+
             naso: [
                 {
                     parasha: "Насо",
@@ -154,8 +212,15 @@ const torahArticlesData = {
         }
     },
 
+
+    /* ---------------------------------------------------------
+       1.5. ДВАРИМ
+       --------------------------------------------------------- */
+
     dvarim: {
+
         title: "Недельные главы",
+
         parashot: [
             { id: "devarim", label: "Дварим 1:1–3:22" },
             { id: "vaetchanan", label: "Ваэтханан 3:23–7:11" },
@@ -169,7 +234,9 @@ const torahArticlesData = {
             { id: "ha’azinu", label: "Гаазину 32:1-32:52" },
             { id: "vezot-haberachah", label: "Браха 33:1-34:12" }
         ],
+
         articles: {
+
             reeh: [
                 {
                     parasha: "Рээ",
@@ -179,6 +246,7 @@ const torahArticlesData = {
                     link: "articles/shavuot-in-torah.html"
                 }
             ],
+
             vaetchanan: [
                 {
                     parasha: "Ваэтханан",
@@ -198,8 +266,15 @@ const torahArticlesData = {
         }
     },
 
+
+    /* ---------------------------------------------------------
+       1.6. ПРАЗДНИКИ
+       --------------------------------------------------------- */
+
     holidays: {
+
         title: "Основные праздники",
+
         parashot: [
             { id: "rosh-chodesh", label: "Рош-ходеш" },
             { id: "shabbat", label: "Шаббат" },
@@ -211,7 +286,9 @@ const torahArticlesData = {
             { id: "hanukkah", label: "Ханука" },
             { id: "purim", label: "Пурим" }
         ],
+
         articles: {
+
             "rosh-chodesh": [
                 {
                     parasha: "Рош-ходеш",
@@ -220,9 +297,9 @@ const torahArticlesData = {
                     image: "../images/newmoon.png",
                     link: "articles/newmoon.html"
                 }
-
             ],
-            "shabbat": [
+
+            shabbat: [
                 {
                     parasha: "Шаббат",
                     title: "Шаббат. От полнолуния к седьмому дню",
@@ -248,6 +325,7 @@ const torahArticlesData = {
                     link: "articles/anti-ugaritic-taboo.html"
                 }
             ],
+
             shavuot: [
                 {
                     parasha: "Шавуот",
@@ -278,6 +356,7 @@ const torahArticlesData = {
                     link: "articles/shavuot-and-torah.html"
                 }
             ],
+
             sukkot: [],
             "rosh-hashanah": [],
             "yom-kippur": [],
@@ -287,79 +366,241 @@ const torahArticlesData = {
     }
 };
 
-const bookTabs = document.querySelectorAll(".torah-book-tab");
-const mainBox = document.getElementById("torahArticlesMain");
-const sidebar = document.getElementById("torahParashaSidebar");
+
+/* =========================================================
+   2. ЭЛЕМЕНТЫ СТРАНИЦЫ
+   Получаем вкладки книг, блок статей и боковое меню
+   ========================================================= */
+
+const bookTabs =
+    document.querySelectorAll(".torah-book-tab");
+
+const mainBox =
+    document.getElementById("torahArticlesMain");
+
+const sidebar =
+    document.getElementById("torahParashaSidebar");
+
+
+/* =========================================================
+   3. ТЕКУЩИЙ ВЫБОР
+   По умолчанию открывается Берешит
+   ========================================================= */
 
 let activeBook = "bereshit";
 let activeParasha = "bereshit";
 
+
+/* =========================================================
+   4. СПИСОК НЕДЕЛЬНЫХ ГЛАВ
+   Создаёт боковое меню выбранной книги
+   ========================================================= */
+
 function renderParashot(bookKey) {
-    const book = torahArticlesData[bookKey];
+
+    const book =
+        torahArticlesData[bookKey];
+
+
+    /* Создаём заголовок и кнопки недельных глав */
 
     sidebar.innerHTML = `
-        <h3 class="torah-parasha-title">${book.title}</h3>
+        <h3 class="torah-parasha-title">
+            ${book.title}
+        </h3>
+
         <div class="torah-parasha-list">
+
             ${book.parashot.map(item => `
-                <button class="torah-parasha-btn ${item.id === activeParasha ? "active" : ""}" data-parasha="${item.id}">
+
+                <button
+                    class="torah-parasha-btn ${item.id === activeParasha ? "active" : ""}"
+                    data-parasha="${item.id}"
+                >
                     ${item.label}
                 </button>
+
             `).join("")}
+
         </div>
     `;
 
-    sidebar.querySelectorAll(".torah-parasha-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-            activeParasha = btn.dataset.parasha;
-            renderParashot(activeBook);
-            renderArticles(activeBook, activeParasha);
+
+    /* Обрабатываем выбор недельной главы */
+
+    sidebar
+        .querySelectorAll(".torah-parasha-btn")
+        .forEach(btn => {
+
+            btn.addEventListener("click", () => {
+
+                activeParasha =
+                    btn.dataset.parasha;
+
+                renderParashot(
+                    activeBook
+                );
+
+                renderArticles(
+                    activeBook,
+                    activeParasha
+                );
+            });
+
         });
-    });
 }
 
-function renderArticles(bookKey, parashaKey) {
-    const book = torahArticlesData[bookKey];
-    const items = book.articles[parashaKey] || [];
+
+/* =========================================================
+   5. СПИСОК СТАТЕЙ
+   Показывает статьи выбранной недельной главы
+   ========================================================= */
+
+function renderArticles(
+    bookKey,
+    parashaKey
+) {
+
+    const book =
+        torahArticlesData[bookKey];
+
+    const items =
+        book.articles[parashaKey] || [];
+
+
+    /* Если статей пока нет */
 
     if (!items.length) {
+
         mainBox.innerHTML = `
             <div class="torah-article-item">
+
                 <div class="torah-article-meta">
-                    <p class="torah-article-parasha">Пока пусто</p>
-                    <h3 class="torah-article-title">Для этой недельной главы статьи ещё не добавлены</h3>
-                    <p class="torah-article-text">Когда ты добавишь материалы по этой главе, они будут показываться здесь.</p>
+
+                    <p class="torah-article-parasha">
+                        Пока пусто
+                    </p>
+
+                    <h3 class="torah-article-title">
+                        Для этой недельной главы статьи ещё не добавлены
+                    </h3>
+
+                    <p class="torah-article-text">
+                        Когда ты добавишь материалы по этой главе,
+                        они будут показываться здесь.
+                    </p>
+
                 </div>
+
             </div>
         `;
+
         return;
     }
 
-    mainBox.innerHTML = items.map(item => `
-        <article class="torah-article-item">
-            <img src="${item.image}" alt="${item.title}" class="torah-article-image">
 
-            <div class="torah-article-meta">
-                <p class="torah-article-parasha">${item.parasha}</p>
-                <h3 class="torah-article-title">${item.title}</h3>
-                <p class="torah-article-text">${item.text}</p>
-                <a href="${item.link}" class="torah-article-link">Открыть статью</a>
-            </div>
-        </article>
-    `).join("");
+    /* Создаём карточки найденных статей */
+
+    mainBox.innerHTML =
+        items.map(item => `
+
+            <article class="torah-article-item">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.title}"
+                    class="torah-article-image"
+                >
+
+                <div class="torah-article-meta">
+
+                    <p class="torah-article-parasha">
+                        ${item.parasha}
+                    </p>
+
+                    <h3 class="torah-article-title">
+                        ${item.title}
+                    </h3>
+
+                    <p class="torah-article-text">
+                        ${item.text}
+                    </p>
+
+                    <a
+                        href="${item.link}"
+                        class="torah-article-link"
+                    >
+                        Открыть статью
+                    </a>
+
+                </div>
+
+            </article>
+
+        `).join("");
 }
 
+
+/* =========================================================
+   6. ВЫБОР КНИГИ
+   Переключает вкладку и открывает первую недельную главу
+   ========================================================= */
+
 bookTabs.forEach(tab => {
+
     tab.addEventListener("click", () => {
-        bookTabs.forEach(t => t.classList.remove("active"));
+
+        /* Убираем старую активную вкладку */
+
+        bookTabs.forEach(t =>
+            t.classList.remove("active")
+        );
+
+
+        /* Подсвечиваем выбранную книгу */
+
         tab.classList.add("active");
 
-        activeBook = tab.dataset.book;
-        activeParasha = torahArticlesData[activeBook].parashot[0].id;
 
-        renderParashot(activeBook);
-        renderArticles(activeBook, activeParasha);
+        /* Запоминаем выбранную книгу */
+
+        activeBook =
+            tab.dataset.book;
+
+
+        /* Открываем первую недельную главу книги */
+
+        activeParasha =
+            torahArticlesData[activeBook]
+                .parashot[0]
+                .id;
+
+
+        /* Обновляем меню и статьи */
+
+        renderParashot(
+            activeBook
+        );
+
+        renderArticles(
+            activeBook,
+            activeParasha
+        );
     });
+
 });
 
-renderParashot(activeBook);
-renderArticles(activeBook, activeParasha);
+
+/* =========================================================
+   7. ЗАПУСК
+   Первоначально показываем Берешит
+   ========================================================= */
+
+renderParashot(
+    activeBook
+);
+
+renderArticles(
+    activeBook,
+    activeParasha
+);
