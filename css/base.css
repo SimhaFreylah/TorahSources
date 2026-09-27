@@ -92,8 +92,51 @@ p {
 
     text-align: justify;
 
+    text-align-last: left;
+
     hyphens: auto;
 }
+
+/* Обычные ссылки внутри абзаца, но НЕ ссылки-сноски */
+.new-paragraph a {
+    display: inline;
+    margin-left: 0.15em;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   ССЫЛКИ-СНОСКИ ВНУТРИ ТЕКСТА
+   ========================================================= */
+
+.fn-ref {
+    display: inline !important;
+
+    margin-left: 0 !important;
+
+    color: #6fa8ff;
+
+    white-space: nowrap;
+
+    text-decoration: none;
+}
+
+
+/* Неразрывный маленький пробел перед номером сноски */
+.fn-ref::before {
+    content: "\00a0";
+}
+
+
+.fn-ref:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+
+
+
 
 
 /* =========================================================
